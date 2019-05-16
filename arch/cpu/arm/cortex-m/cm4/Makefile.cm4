@@ -1,0 +1,7 @@
+CONTIKI_ARM_DIRS += cortex-m/cm4
+
+CFLAGS += -mcpu=cortex-m4
+
+LDFLAGS += -mcpu=cortex-m4
+
+include $(ARCH_PATH)/cpu/arm/cortex-m/Makefile.cortex-m

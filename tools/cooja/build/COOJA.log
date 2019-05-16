@@ -1,0 +1,812 @@
+[16:00:35 - AWT-EventQueue-0] [Cooja.java:2857] [INFO] - External tools default settings: /external_tools_linux.config
+[16:00:35 - AWT-EventQueue-0] [Cooja.java:2887] [INFO] - External tools user settings: /home/user/.cooja.user.properties
+[16:00:38 - AWT-EventQueue-0] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:00:38 - AWT-EventQueue-0] [Visualizer.java:256] [INFO] - Registered external visualizer: org.contikios.cooja.plugins.skins.DGRMVisualizerSkin
+[16:00:44 - AWT-EventQueue-0] [CompileContiki.java:140] [INFO] - > make clean TARGET=sky 
+[16:00:45 - AWT-EventQueue-0] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:02:11 - AWT-EventQueue-0] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:03:26 - AWT-EventQueue-0] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:03:32 - AWT-EventQueue-0] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:03:33 - AWT-EventQueue-0] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:04:00 - AWT-EventQueue-0] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:04:03 - AWT-EventQueue-0] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:04:04 - AWT-EventQueue-0] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:04:21 - Thread-0] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558015461132
+[16:04:33 - Thread-0] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558015473610	Duration: 12478 ms	Simulated time 57868 ms	Ratio 4.637602179836512
+[16:08:41 - Thread-1] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:08:41 - Thread-1] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:08:41 - Thread-1] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:08:41 - Thread-1] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:08:41 - Thread-1] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:08:41 - Thread-1] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:08:42 - Thread-1] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:08:42 - Thread-1] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:08:42 - Thread-1] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:08:42 - Thread-1] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:08:47 - Thread-2] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558015727262
+[16:08:56 - Thread-2] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558015736248	Duration: 8986 ms	Simulated time 48084 ms	Ratio 5.350990429557089
+[16:10:47 - Thread-3] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:10:47 - Thread-3] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:10:47 - Thread-3] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:10:47 - Thread-3] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:10:48 - Thread-3] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:10:48 - Thread-3] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:10:48 - Thread-3] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:10:48 - Thread-3] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:10:48 - Thread-3] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:10:48 - Thread-3] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:10:52 - Thread-4] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558015852596
+[16:10:59 - Thread-4] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558015859210	Duration: 6614 ms	Simulated time 39529 ms	Ratio 5.976564862413063
+[16:20:04 - Thread-5] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:20:04 - Thread-5] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:20:04 - Thread-5] [SkyMoteType.java:171] [FATAL] - >>   CC        ..//os/net/routing/rpl-lite/rpl-ext-header.c
+[16:20:04 - Thread-5] [SkyMoteType.java:171] [FATAL] - >>   CC        ..//os/net/routing/rpl-lite/rpl-icmp6.c
+[16:20:04 - Thread-5] [SkyMoteType.java:171] [FATAL] - >> ..//os/net/routing/rpl-lite/rpl-icmp6.c: In function ‘rpl_icmp6_init’:
+[16:20:04 - Thread-5] [SkyMoteType.java:171] [FATAL] - >> ..//os/net/routing/rpl-lite/rpl-icmp6.c:683:37: error: ‘flood_handler’ undeclared (first use in this function)
+[16:20:04 - Thread-5] [SkyMoteType.java:171] [FATAL] - >> ..//os/net/routing/rpl-lite/rpl-icmp6.c:683:37: note: each undeclared identifier is reported only once for each function it appears in
+[16:20:04 - Thread-5] [SkyMoteType.java:171] [FATAL] - >> ..//os/net/routing/rpl-lite/rpl-icmp6.c: At top level:
+[16:20:04 - Thread-5] [SkyMoteType.java:171] [FATAL] - >> cc1: error: unrecognized command line option "-Wno-unused-const-variable" [-Werror]
+[16:20:04 - Thread-5] [SkyMoteType.java:171] [FATAL] - >> cc1: all warnings being treated as errors
+[16:20:04 - Thread-5] [SkyMoteType.java:171] [FATAL] - >> make: *** [build/sky/obj/rpl-icmp6.o] Error 1
+[16:20:04 - Thread-5] [SkyMoteType.java:171] [FATAL] - >> Process returned error code 2
+[16:20:04 - Thread-5] [SkyMoteType.java:174] [FATAL] - Compilation error: Bad return value
+[16:20:24 - Thread-5] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:20:24 - Thread-5] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:20:25 - Thread-5] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:20:25 - Thread-5] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:20:25 - Thread-5] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:20:25 - Thread-5] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:20:26 - Thread-5] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:20:26 - Thread-5] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:20:26 - Thread-5] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:20:26 - Thread-5] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:20:27 - Thread-7] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558016427742
+[16:20:36 - Thread-7] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558016436008	Duration: 8266 ms	Simulated time 46383 ms	Ratio 5.61129929833051
+[16:24:40 - Thread-8] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:24:40 - Thread-8] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:24:40 - Thread-8] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:24:40 - Thread-8] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:24:40 - Thread-8] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:24:40 - Thread-8] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:24:40 - Thread-8] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:24:40 - Thread-8] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:24:41 - Thread-8] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:24:41 - Thread-8] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:24:42 - Thread-9] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558016682262
+[16:24:55 - Thread-9] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558016695365	Duration: 13103 ms	Simulated time 30483 ms	Ratio 2.326413798366786
+[16:25:00 - Thread-10] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:25:00 - Thread-10] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:25:00 - Thread-10] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:25:00 - Thread-10] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:25:01 - Thread-10] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:25:01 - Thread-10] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:25:01 - Thread-10] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:25:01 - Thread-10] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:25:01 - Thread-10] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:25:01 - Thread-10] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:25:02 - Thread-11] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558016702380
+[16:25:08 - Thread-11] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558016708938	Duration: 6558 ms	Simulated time 24018 ms	Ratio 3.6623970722781336
+[16:25:21 - Thread-12] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:25:21 - Thread-12] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:25:21 - Thread-12] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:25:21 - Thread-12] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:25:21 - Thread-12] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:25:21 - Thread-12] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:25:22 - Thread-12] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:25:22 - Thread-12] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:25:22 - Thread-12] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:25:22 - Thread-12] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:25:22 - Thread-13] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558016722730
+[16:25:28 - Thread-13] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558016728458	Duration: 5728 ms	Simulated time 37475 ms	Ratio 6.542423184357542
+[16:25:32 - Thread-14] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558016732062
+[16:25:40 - Thread-14] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558016740794	Duration: 8732 ms	Simulated time 72367 ms	Ratio 8.287562986715528
+[16:26:14 - Thread-15] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:26:14 - Thread-15] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:26:14 - Thread-15] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:26:14 - Thread-15] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:26:14 - Thread-15] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:26:14 - Thread-15] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:26:14 - Thread-15] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:26:14 - Thread-15] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:26:15 - Thread-15] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:26:15 - Thread-15] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:26:16 - Thread-16] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558016776196
+[16:26:18 - Thread-16] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558016778582	Duration: 2386 ms	Simulated time 24384 ms	Ratio 10.219614417435038
+[16:28:05 - Thread-17] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:28:05 - Thread-17] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:28:05 - Thread-17] [SkyMoteType.java:171] [FATAL] - >> ..//os/net/ipv6/uip-icmp6.c:175:5: error: ‘LOG_LEVEL_ICMPv6’ undeclared (first use in this function)
+[16:28:05 - Thread-17] [SkyMoteType.java:171] [FATAL] - >> ..//os/net/ipv6/uip-icmp6.c: In function ‘uip_icmp6_send’:
+[16:28:05 - Thread-17] [SkyMoteType.java:171] [FATAL] - >> ..//os/net/ipv6/uip-icmp6.c:254:3: error: ‘LOG_LEVEL_ICMPv6’ undeclared (first use in this function)
+[16:28:05 - Thread-17] [SkyMoteType.java:171] [FATAL] - >> ..//os/net/ipv6/uip-icmp6.c: In function ‘echo_reply_input’:
+[16:28:05 - Thread-17] [SkyMoteType.java:171] [FATAL] - >> ..//os/net/ipv6/uip-icmp6.c:267:3: error: ‘LOG_LEVEL_ICMPv6’ undeclared (first use in this function)
+[16:28:05 - Thread-17] [SkyMoteType.java:171] [FATAL] - >> ..//os/net/ipv6/uip-icmp6.c: At top level:
+[16:28:05 - Thread-17] [SkyMoteType.java:171] [FATAL] - >> cc1: error: unrecognized command line option "-Wno-unused-const-variable" [-Werror]
+[16:28:05 - Thread-17] [SkyMoteType.java:171] [FATAL] - >> cc1: all warnings being treated as errors
+[16:28:05 - Thread-17] [SkyMoteType.java:171] [FATAL] - >> make: *** [build/sky/obj/uip-icmp6.o] Error 1
+[16:28:05 - Thread-17] [SkyMoteType.java:171] [FATAL] - >> Process returned error code 2
+[16:28:05 - Thread-17] [SkyMoteType.java:174] [FATAL] - Compilation error: Bad return value
+[16:29:01 - Thread-17] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:29:01 - Thread-17] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:29:01 - Thread-17] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:29:01 - Thread-17] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:29:02 - Thread-17] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:29:02 - Thread-17] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:29:02 - Thread-17] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:29:02 - Thread-17] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:29:02 - Thread-17] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:29:02 - Thread-17] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:29:03 - Thread-19] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558016943698
+[16:29:09 - Thread-19] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558016949190	Duration: 5492 ms	Simulated time 35937 ms	Ratio 6.543517844136926
+[16:29:58 - Thread-20] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558016998256
+[16:30:05 - Thread-20] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017005246	Duration: 6990 ms	Simulated time 62018 ms	Ratio 8.87238912732475
+[16:30:42 - Thread-21] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:30:42 - Thread-21] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:30:42 - Thread-21] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:30:42 - Thread-21] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:30:42 - Thread-21] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:30:42 - Thread-21] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:30:43 - Thread-21] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:30:43 - Thread-21] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:30:43 - Thread-21] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:30:43 - Thread-21] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:30:45 - Thread-22] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017045790
+[16:31:09 - Thread-22] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017069647	Duration: 23857 ms	Simulated time 105358 ms	Ratio 4.4162300373056125
+[16:31:28 - Thread-23] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:31:28 - Thread-23] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:31:28 - Thread-23] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:31:28 - Thread-23] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:31:28 - Thread-23] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:31:28 - Thread-23] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:31:29 - Thread-23] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:31:29 - Thread-23] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:31:29 - Thread-23] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:31:29 - Thread-23] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:31:30 - Thread-24] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017090163
+[16:31:34 - Thread-24] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017094159	Duration: 3996 ms	Simulated time 30404 ms	Ratio 7.608608608608608
+[16:31:37 - Thread-25] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017097650
+[16:31:41 - Thread-25] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017101140	Duration: 3490 ms	Simulated time 43724 ms	Ratio 12.52836676217765
+[16:32:26 - Thread-26] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:32:26 - Thread-26] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:32:26 - Thread-26] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:32:26 - Thread-26] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:32:26 - Thread-26] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:32:26 - Thread-26] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:32:26 - Thread-26] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:32:27 - Thread-26] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:32:27 - Thread-26] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:32:27 - Thread-26] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:32:30 - Thread-27] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017150494
+[16:32:41 - Thread-27] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017161821	Duration: 11327 ms	Simulated time 89840 ms	Ratio 7.931491127394721
+[16:32:54 - Thread-28] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017174298
+[16:33:01 - Thread-28] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017181504	Duration: 7206 ms	Simulated time 142444 ms	Ratio 19.767416042187065
+[16:34:36 - Thread-29] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017276576
+[16:34:41 - Thread-29] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017281086	Duration: 4510 ms	Simulated time 174300 ms	Ratio 38.647450110864746
+[16:35:23 - Thread-30] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:35:23 - Thread-30] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:35:23 - Thread-30] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:35:23 - Thread-30] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:35:23 - Thread-30] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:35:24 - Thread-30] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:35:24 - Thread-30] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:35:24 - Thread-30] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:35:24 - Thread-30] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:35:24 - Thread-30] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:35:25 - Thread-31] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017325278
+[16:35:33 - Thread-31] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017333519	Duration: 8241 ms	Simulated time 46893 ms	Ratio 5.690207499089916
+[16:36:55 - Thread-32] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:36:55 - Thread-32] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:36:55 - Thread-32] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:36:55 - Thread-32] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:36:55 - Thread-32] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:36:55 - Thread-32] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:36:56 - Thread-32] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:36:56 - Thread-32] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:36:56 - Thread-32] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:36:56 - Thread-32] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:36:59 - Thread-33] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017419792
+[16:37:07 - Thread-33] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017427872	Duration: 8080 ms	Simulated time 45522 ms	Ratio 5.6339108910891085
+[16:37:58 - Thread-34] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:37:58 - Thread-34] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:37:58 - Thread-34] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:37:58 - Thread-34] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:37:59 - Thread-34] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:37:59 - Thread-34] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:37:59 - Thread-34] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:37:59 - Thread-34] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:37:59 - Thread-34] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:37:59 - Thread-34] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:38:00 - Thread-35] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017480484
+[16:38:08 - Thread-35] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017488228	Duration: 7744 ms	Simulated time 44488 ms	Ratio 5.744834710743802
+[16:39:21 - Thread-36] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:39:21 - Thread-36] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:39:21 - Thread-36] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:39:21 - Thread-36] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:39:21 - Thread-36] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:39:21 - Thread-36] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:39:22 - Thread-36] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:39:22 - Thread-36] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:39:22 - Thread-36] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:39:22 - Thread-36] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:39:22 - Thread-37] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017562856
+[16:39:27 - Thread-37] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017567163	Duration: 4307 ms	Simulated time 31175 ms	Ratio 7.238216856280474
+[16:39:27 - Thread-38] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:39:27 - Thread-38] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:39:27 - Thread-38] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:39:27 - Thread-38] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:39:27 - Thread-38] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:39:27 - Thread-38] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:39:27 - Thread-38] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:39:27 - Thread-38] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:39:28 - Thread-38] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:39:28 - Thread-38] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:39:28 - Thread-39] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017568271
+[16:39:30 - Thread-39] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017570247	Duration: 1976 ms	Simulated time 22192 ms	Ratio 11.23076923076923
+[16:39:36 - Thread-40] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:39:36 - Thread-40] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:39:36 - Thread-40] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:39:37 - Thread-40] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:39:37 - Thread-40] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:39:37 - Thread-40] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:39:37 - Thread-40] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:39:37 - Thread-40] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:39:37 - Thread-40] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:39:38 - Thread-40] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:39:38 - Thread-41] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017578700
+[16:39:41 - Thread-41] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017581465	Duration: 2765 ms	Simulated time 25381 ms	Ratio 9.179385171790235
+[16:39:48 - Thread-42] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:39:48 - Thread-42] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:39:48 - Thread-42] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:39:48 - Thread-42] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:39:48 - Thread-42] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:39:48 - Thread-42] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:39:48 - Thread-42] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:39:48 - Thread-42] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:39:49 - Thread-42] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:39:49 - Thread-42] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:39:49 - Thread-43] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017589640
+[16:39:52 - Thread-43] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017592622	Duration: 2982 ms	Simulated time 25976 ms	Ratio 8.710932260228034
+[16:40:19 - Thread-44] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017619614
+[16:40:20 - Thread-44] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017620575	Duration: 961 ms	Simulated time 29627 ms	Ratio 30.829344432882415
+[16:40:26 - Thread-45] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:40:26 - Thread-45] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:40:27 - Thread-45] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:40:27 - Thread-45] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:40:27 - Thread-45] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:40:27 - Thread-45] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:40:27 - Thread-45] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:40:27 - Thread-45] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:40:28 - Thread-45] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:40:28 - Thread-45] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:40:28 - Thread-46] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017628578
+[16:40:33 - Thread-46] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017633641	Duration: 5063 ms	Simulated time 34263 ms	Ratio 6.76733162156824
+[16:40:56 - Thread-47] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:40:56 - Thread-47] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:40:56 - Thread-47] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:40:57 - Thread-47] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:40:57 - Thread-47] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:40:57 - Thread-47] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:40:57 - Thread-47] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:40:57 - Thread-47] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:40:57 - Thread-47] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:40:57 - Thread-47] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:40:58 - Thread-48] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017658432
+[16:41:00 - Thread-48] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017660251	Duration: 1819 ms	Simulated time 22091 ms	Ratio 12.14458493677845
+[16:41:01 - Thread-49] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017661694
+[16:41:08 - Thread-49] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017668844	Duration: 7150 ms	Simulated time 49432 ms	Ratio 6.913566433566434
+[16:41:22 - Thread-50] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:41:22 - Thread-50] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:41:22 - Thread-50] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:41:22 - Thread-50] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:41:22 - Thread-50] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:41:22 - Thread-50] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:41:23 - Thread-50] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:41:23 - Thread-50] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:41:23 - Thread-50] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:41:23 - Thread-50] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:41:23 - Thread-51] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017683744
+[16:41:29 - Thread-51] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017689792	Duration: 6048 ms	Simulated time 37407 ms	Ratio 6.185019841269841
+[16:41:37 - Thread-52] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:41:37 - Thread-52] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:41:37 - Thread-52] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:41:37 - Thread-52] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:41:37 - Thread-52] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:41:37 - Thread-52] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:41:38 - Thread-52] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:41:38 - Thread-52] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:41:38 - Thread-52] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:41:38 - Thread-52] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:41:39 - Thread-53] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017699076
+[16:41:41 - Thread-53] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017701084	Duration: 2008 ms	Simulated time 22653 ms	Ratio 11.281374501992032
+[16:43:02 - Thread-54] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:43:02 - Thread-54] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:43:03 - Thread-54] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:43:03 - Thread-54] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:43:03 - Thread-54] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:43:03 - Thread-54] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:43:03 - Thread-54] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:43:03 - Thread-54] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:43:04 - Thread-54] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:43:04 - Thread-54] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:43:04 - Thread-55] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017784656
+[16:43:07 - Thread-55] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017787991	Duration: 3335 ms	Simulated time 27743 ms	Ratio 8.318740629685157
+[16:43:17 - Thread-56] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:43:17 - Thread-56] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:43:18 - Thread-56] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:43:18 - Thread-56] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:43:18 - Thread-56] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:43:18 - Thread-56] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:43:18 - Thread-56] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:43:18 - Thread-56] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:43:18 - Thread-56] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:43:19 - Thread-56] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:43:19 - Thread-57] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017799364
+[16:43:20 - Thread-57] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017800769	Duration: 1405 ms	Simulated time 20583 ms	Ratio 14.64982206405694
+[16:43:23 - Thread-58] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017803226
+[16:43:28 - Thread-58] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017808085	Duration: 4859 ms	Simulated time 38873 ms	Ratio 8.000205803663306
+[16:43:41 - Thread-59] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:43:41 - Thread-59] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:43:41 - Thread-59] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:43:41 - Thread-59] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:43:41 - Thread-59] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:43:41 - Thread-59] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:43:42 - Thread-59] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:43:42 - Thread-59] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:43:42 - Thread-59] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:43:42 - Thread-59] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:43:42 - Thread-60] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558017822772
+[16:43:49 - Thread-60] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558017829477	Duration: 6705 ms	Simulated time 40414 ms	Ratio 6.027442207307979
+[16:47:28 - Thread-61] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:47:28 - Thread-61] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:47:28 - Thread-61] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:47:28 - Thread-61] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:47:29 - Thread-61] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:47:29 - Thread-61] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:47:29 - Thread-61] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:47:29 - Thread-61] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:47:29 - Thread-61] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:47:29 - Thread-61] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:47:30 - Thread-62] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018050852
+[16:47:33 - Thread-62] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018053002	Duration: 2150 ms	Simulated time 23067 ms	Ratio 10.728837209302325
+[16:47:35 - Thread-63] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018055106
+[16:47:39 - Thread-63] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018059435	Duration: 4329 ms	Simulated time 39878 ms	Ratio 9.211827211827211
+[16:48:38 - Thread-64] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:48:38 - Thread-64] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:48:39 - Thread-64] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:48:39 - Thread-64] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:48:39 - Thread-64] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:48:39 - Thread-64] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:48:39 - Thread-64] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:48:39 - Thread-64] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:48:39 - Thread-64] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:48:40 - Thread-64] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:48:41 - Thread-65] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018121102
+[16:48:55 - Thread-65] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018135647	Duration: 14545 ms	Simulated time 70685 ms	Ratio 4.859745617050533
+[16:49:43 - Thread-66] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:49:43 - Thread-66] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:49:43 - Thread-66] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:49:43 - Thread-66] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:49:43 - Thread-66] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:49:43 - Thread-66] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:49:43 - Thread-66] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:49:43 - Thread-66] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:49:44 - Thread-66] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:49:44 - Thread-66] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:49:44 - Thread-67] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018184620
+[16:49:52 - Thread-67] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018192371	Duration: 7751 ms	Simulated time 45045 ms	Ratio 5.811508192491291
+[16:50:25 - Thread-68] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:50:25 - Thread-68] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:50:25 - Thread-68] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:50:25 - Thread-68] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:50:25 - Thread-68] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:50:25 - Thread-68] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:50:26 - Thread-68] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:50:26 - Thread-68] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:50:26 - Thread-68] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:50:26 - Thread-68] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:50:27 - Thread-69] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018227002
+[16:50:32 - Thread-69] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018232997	Duration: 5995 ms	Simulated time 37911 ms	Ratio 6.323769808173478
+[16:50:39 - Thread-70] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:50:39 - Thread-70] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:50:39 - Thread-70] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:50:39 - Thread-70] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:50:39 - Thread-70] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:50:39 - Thread-70] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:50:40 - Thread-70] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:50:40 - Thread-70] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:50:40 - Thread-70] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:50:40 - Thread-70] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:50:40 - Thread-71] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018240712
+[16:50:49 - Thread-71] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018249893	Duration: 9181 ms	Simulated time 50541 ms	Ratio 5.504955887158261
+[16:51:25 - Thread-72] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:51:25 - Thread-72] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:51:26 - Thread-72] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:51:26 - Thread-72] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:51:26 - Thread-72] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:51:26 - Thread-72] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:51:26 - Thread-72] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:51:26 - Thread-72] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:51:26 - Thread-72] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:51:27 - Thread-72] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:51:27 - Thread-73] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018287731
+[16:51:29 - Thread-73] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018289124	Duration: 1393 ms	Simulated time 20469 ms	Ratio 14.694185211773151
+[16:51:33 - Thread-74] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018293352
+[16:51:46 - Thread-74] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018306805	Duration: 13453 ms	Simulated time 71315 ms	Ratio 5.301048093362075
+[16:52:19 - Thread-75] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:52:19 - Thread-75] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:52:19 - Thread-75] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:52:19 - Thread-75] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:52:19 - Thread-75] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:52:19 - Thread-75] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:52:20 - Thread-75] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:52:20 - Thread-75] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:52:20 - Thread-75] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:52:20 - Thread-75] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:52:25 - Thread-76] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018345323
+[16:52:28 - Thread-76] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018348789	Duration: 3466 ms	Simulated time 34461 ms	Ratio 9.94258511252164
+[16:52:33 - Thread-77] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018353171
+[16:52:40 - Thread-77] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018360353	Duration: 7182 ms	Simulated time 85069 ms	Ratio 11.844750765803397
+[16:52:49 - Thread-78] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:52:49 - Thread-78] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:52:49 - Thread-78] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:52:49 - Thread-78] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:52:49 - Thread-78] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:52:50 - Thread-78] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:52:50 - Thread-78] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:52:50 - Thread-78] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:52:50 - Thread-78] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:52:50 - Thread-78] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:52:51 - Thread-79] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018371202
+[16:52:58 - Thread-79] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018378919	Duration: 7717 ms	Simulated time 65932 ms	Ratio 8.543734611895815
+[16:56:04 - Thread-80] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:56:04 - Thread-80] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:56:04 - Thread-80] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:56:05 - Thread-80] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:56:05 - Thread-80] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:56:05 - Thread-80] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:56:05 - Thread-80] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:56:05 - Thread-80] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:56:05 - Thread-80] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:56:05 - Thread-80] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:56:06 - Thread-81] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018566301
+[16:56:14 - Thread-81] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018574509	Duration: 8208 ms	Simulated time 46101 ms	Ratio 5.616593567251462
+[16:56:54 - Thread-82] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:56:54 - Thread-82] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:56:54 - Thread-82] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:56:54 - Thread-82] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:56:54 - Thread-82] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:56:54 - Thread-82] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:56:54 - Thread-82] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:56:54 - Thread-82] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:56:55 - Thread-82] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:56:55 - Thread-82] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:56:55 - Thread-83] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018615836
+[16:56:59 - Thread-83] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018619019	Duration: 3183 ms	Simulated time 233260 ms	Ratio 73.28306628966384
+[16:57:06 - Thread-84] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018626744
+[16:57:09 - Thread-84] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018629327	Duration: 2583 ms	Simulated time 432455 ms	Ratio 167.4235385210995
+[16:57:28 - Thread-85] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:57:28 - Thread-85] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:57:28 - Thread-85] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:57:28 - Thread-85] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:57:28 - Thread-85] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:57:28 - Thread-85] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:57:29 - Thread-85] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:57:29 - Thread-85] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:57:29 - Thread-85] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:57:29 - Thread-85] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:57:29 - Thread-86] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018649804
+[16:57:44 - Thread-86] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018664041	Duration: 14237 ms	Simulated time 69203 ms	Ratio 4.860785277797289
+[16:58:14 - Thread-87] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:58:14 - Thread-87] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:58:14 - Thread-87] [SkyMoteType.java:171] [FATAL] - >> fatal: Not a git repository: '..//.git'
+[16:58:14 - Thread-87] [SkyMoteType.java:171] [FATAL] - >>   CC        ..//os/net/ipv6/uip-icmp6.c
+[16:58:14 - Thread-87] [SkyMoteType.java:171] [FATAL] - >>   CC        ..//os/net/routing/rpl-lite/rpl-icmp6-malicious.c
+[16:58:14 - Thread-87] [SkyMoteType.java:171] [FATAL] - >> ..//os/net/routing/rpl-lite/rpl-icmp6-malicious.c: In function ‘flood_input’:
+[16:58:14 - Thread-87] [SkyMoteType.java:171] [FATAL] - >> ..//os/net/routing/rpl-lite/rpl-icmp6-malicious.c:56:3: error: label at end of compound statement
+[16:58:14 - Thread-87] [SkyMoteType.java:171] [FATAL] - >> ..//os/net/routing/rpl-lite/rpl-icmp6-malicious.c: At top level:
+[16:58:14 - Thread-87] [SkyMoteType.java:171] [FATAL] - >> cc1: error: unrecognized command line option "-Wno-unused-const-variable" [-Werror]
+[16:58:14 - Thread-87] [SkyMoteType.java:171] [FATAL] - >> cc1: all warnings being treated as errors
+[16:58:14 - Thread-87] [SkyMoteType.java:171] [FATAL] - >> make: *** [build/sky/obj/rpl-icmp6-malicious.o] Error 1
+[16:58:14 - Thread-87] [SkyMoteType.java:171] [FATAL] - >> Process returned error code 2
+[16:58:14 - Thread-87] [SkyMoteType.java:174] [FATAL] - Compilation error: Bad return value
+[16:58:26 - Thread-87] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:58:26 - Thread-87] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:58:27 - Thread-87] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:58:27 - Thread-87] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:58:27 - Thread-87] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:58:27 - Thread-87] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:58:27 - Thread-87] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:58:27 - Thread-87] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:58:27 - Thread-87] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:58:28 - Thread-87] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:58:29 - Thread-89] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018709810
+[16:58:35 - Thread-89] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018715437	Duration: 5627 ms	Simulated time 34146 ms	Ratio 6.068242402701261
+[16:58:48 - Thread-90] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:58:48 - Thread-90] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:58:48 - Thread-90] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:58:48 - Thread-90] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:58:48 - Thread-90] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:58:49 - Thread-90] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:58:49 - Thread-90] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:58:49 - Thread-90] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:58:49 - Thread-90] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:58:49 - Thread-90] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:58:50 - Thread-91] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018730075
+[16:58:59 - Thread-91] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018739050	Duration: 8975 ms	Simulated time 49862 ms	Ratio 5.555654596100278
+[16:59:16 - Thread-92] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[16:59:16 - Thread-92] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[16:59:16 - Thread-92] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[16:59:16 - Thread-92] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[16:59:16 - Thread-92] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[16:59:17 - Thread-92] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:59:17 - Thread-92] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[16:59:17 - Thread-92] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:59:17 - Thread-92] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[16:59:17 - Thread-92] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[16:59:18 - Thread-93] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018758016
+[16:59:25 - Thread-93] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018765091	Duration: 7075 ms	Simulated time 42221 ms	Ratio 5.967632508833923
+[17:00:49 - Thread-94] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:00:49 - Thread-94] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:00:49 - Thread-94] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:00:49 - Thread-94] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:00:50 - Thread-94] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:00:50 - Thread-94] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:00:50 - Thread-94] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:00:50 - Thread-94] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:00:50 - Thread-94] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:00:50 - Thread-94] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:00:51 - Thread-95] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018851532
+[17:00:54 - Thread-95] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018854957	Duration: 3425 ms	Simulated time 28264 ms	Ratio 8.252262773722627
+[17:01:09 - Thread-96] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558018869123
+[17:01:14 - Thread-96] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558018874409	Duration: 5286 ms	Simulated time 48801 ms	Ratio 9.232122587968218
+[17:04:35 - Thread-97] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:04:35 - Thread-97] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:04:35 - Thread-97] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:04:35 - Thread-97] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:04:35 - Thread-97] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:04:35 - Thread-97] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:04:36 - Thread-97] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:04:36 - Thread-97] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:04:36 - Thread-97] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:04:36 - Thread-97] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:04:41 - Thread-98] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019081271
+[17:04:46 - Thread-98] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019086541	Duration: 5270 ms	Simulated time 47770 ms	Ratio 9.064516129032258
+[17:06:23 - Thread-99] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:06:23 - Thread-99] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:06:23 - Thread-99] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:06:23 - Thread-99] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:06:23 - Thread-99] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:06:23 - Thread-99] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:06:23 - Thread-99] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:06:23 - Thread-99] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:06:24 - Thread-99] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:06:24 - Thread-99] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:06:29 - Thread-100] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019189974
+[17:06:31 - Thread-100] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019191485	Duration: 1511 ms	Simulated time 21969 ms	Ratio 14.539377895433487
+[17:06:37 - Thread-101] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019197766
+[17:06:41 - Thread-101] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019201153	Duration: 3387 ms	Simulated time 44820 ms	Ratio 13.232949512843224
+[17:08:15 - Thread-102] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:08:15 - Thread-102] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:08:16 - Thread-102] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:08:16 - Thread-102] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:08:16 - Thread-102] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:08:16 - Thread-102] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:08:16 - Thread-102] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:08:16 - Thread-102] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:08:16 - Thread-102] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:08:17 - Thread-102] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:08:21 - Thread-103] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019301436
+[17:08:28 - Thread-103] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019308161	Duration: 6725 ms	Simulated time 40983 ms	Ratio 6.0941263940520445
+[17:08:49 - Thread-104] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:08:49 - Thread-104] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:08:49 - Thread-104] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:08:49 - Thread-104] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:08:49 - Thread-104] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:08:49 - Thread-104] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:08:50 - Thread-104] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:08:50 - Thread-104] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:08:50 - Thread-104] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:08:50 - Thread-104] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:08:50 - Thread-105] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019330874
+[17:08:57 - Thread-105] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019337429	Duration: 6555 ms	Simulated time 40274 ms	Ratio 6.1440122044241035
+[17:09:14 - Thread-106] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019354561
+[17:09:20 - Thread-106] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019360035	Duration: 5474 ms	Simulated time 61162 ms	Ratio 11.173182316404823
+[17:09:23 - Thread-107] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019363748
+[17:09:59 - Thread-107] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019399431	Duration: 35683 ms	Simulated time 199814 ms	Ratio 5.599697334865342
+[17:11:55 - Thread-108] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:11:55 - Thread-108] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:11:55 - Thread-108] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:11:56 - Thread-108] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:11:56 - Thread-108] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:11:56 - Thread-108] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:11:56 - Thread-108] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:11:56 - Thread-108] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:11:56 - Thread-108] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:11:56 - Thread-108] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:11:57 - Thread-109] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019517967
+[17:12:06 - Thread-109] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019526631	Duration: 8664 ms	Simulated time 48182 ms	Ratio 5.561172668513389
+[17:14:40 - Thread-110] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:14:40 - Thread-110] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:14:41 - Thread-110] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:14:41 - Thread-110] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:14:42 - Thread-110] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:14:42 - Thread-110] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:14:42 - Thread-110] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:14:42 - Thread-110] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:14:42 - Thread-110] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:14:42 - Thread-110] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:14:46 - Thread-111] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019686811
+[17:14:50 - Thread-111] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019690911	Duration: 4100 ms	Simulated time 31358 ms	Ratio 7.648292682926829
+[17:15:10 - Thread-112] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:15:10 - Thread-112] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:15:11 - Thread-112] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:15:11 - Thread-112] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:15:11 - Thread-112] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:15:11 - Thread-112] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:15:11 - Thread-112] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:15:11 - Thread-112] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:15:11 - Thread-112] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:15:12 - Thread-112] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:15:12 - Thread-113] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019712467
+[17:15:14 - Thread-113] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019714021	Duration: 1554 ms	Simulated time 23222 ms	Ratio 14.943371943371943
+[17:15:36 - Thread-114] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:15:36 - Thread-114] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:15:36 - Thread-114] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:15:36 - Thread-114] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:15:36 - Thread-114] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:15:37 - Thread-114] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:15:37 - Thread-114] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:15:37 - Thread-114] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:15:37 - Thread-114] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:15:37 - Thread-114] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:15:38 - Thread-115] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019738044
+[17:15:41 - Thread-115] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019741057	Duration: 3013 ms	Simulated time 26839 ms	Ratio 8.907733156322601
+[17:15:50 - Thread-116] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:15:50 - Thread-116] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:15:50 - Thread-116] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:15:50 - Thread-116] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:15:50 - Thread-116] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:15:50 - Thread-116] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:15:51 - Thread-116] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:15:51 - Thread-116] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:15:51 - Thread-116] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:15:51 - Thread-116] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:15:51 - Thread-117] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019751807
+[17:15:54 - Thread-117] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019754605	Duration: 2798 ms	Simulated time 26084 ms	Ratio 9.322373123659757
+[17:16:04 - Thread-118] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:16:04 - Thread-118] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:16:04 - Thread-118] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:16:04 - Thread-118] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:16:05 - Thread-118] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:16:05 - Thread-118] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:16:05 - Thread-118] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:16:05 - Thread-118] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:16:05 - Thread-118] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:16:05 - Thread-118] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:16:06 - Thread-119] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019766053
+[17:16:08 - Thread-119] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019768115	Duration: 2062 ms	Simulated time 26809 ms	Ratio 13.00145489815713
+[17:17:02 - Thread-120] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:17:02 - Thread-120] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:17:02 - Thread-120] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:17:02 - Thread-120] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:17:02 - Thread-120] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:17:02 - Thread-120] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:17:03 - Thread-120] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:17:03 - Thread-120] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:17:03 - Thread-120] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:17:03 - Thread-120] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:17:12 - Thread-121] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019832882
+[17:17:17 - Thread-121] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019837751	Duration: 4869 ms	Simulated time 13740 ms	Ratio 2.8219346888478127
+[17:17:33 - Thread-122] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019853183
+[17:17:54 - Thread-122] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019874691	Duration: 21508 ms	Simulated time 72366 ms	Ratio 3.3646085177608334
+[17:18:42 - Thread-123] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:18:42 - Thread-123] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:18:42 - Thread-123] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:18:42 - Thread-123] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:18:42 - Thread-123] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:18:42 - Thread-123] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:18:42 - Thread-123] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:18:42 - Thread-123] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:18:43 - Thread-123] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:18:43 - Thread-123] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:18:47 - Thread-124] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019927706
+[17:18:57 - Thread-124] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019937177	Duration: 9471 ms	Simulated time 52537 ms	Ratio 5.547143912997572
+[17:19:06 - Thread-125] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:19:06 - Thread-125] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:19:06 - Thread-125] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:19:06 - Thread-125] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:19:06 - Thread-125] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:19:07 - Thread-125] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:19:07 - Thread-125] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:19:07 - Thread-125] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:19:07 - Thread-125] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:19:07 - Thread-125] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:19:10 - Thread-126] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019950327
+[17:19:12 - Thread-126] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019952561	Duration: 2234 ms	Simulated time 23809 ms	Ratio 10.657564905998209
+[17:19:22 - Thread-127] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:19:22 - Thread-127] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:19:22 - Thread-127] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:19:22 - Thread-127] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:19:22 - Thread-127] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:19:23 - Thread-127] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:19:23 - Thread-127] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:19:23 - Thread-127] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:19:23 - Thread-127] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:19:23 - Thread-127] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:19:23 - Thread-128] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019963863
+[17:19:26 - Thread-128] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019966145	Duration: 2282 ms	Simulated time 23950 ms	Ratio 10.495179666958808
+[17:19:36 - Thread-129] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:19:36 - Thread-129] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:19:36 - Thread-129] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:19:36 - Thread-129] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:19:36 - Thread-129] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:19:37 - Thread-129] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:19:37 - Thread-129] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:19:37 - Thread-129] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:19:37 - Thread-129] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:19:37 - Thread-129] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:19:37 - Thread-130] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019977880
+[17:19:39 - Thread-130] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019979401	Duration: 1521 ms	Simulated time 21262 ms	Ratio 13.978961209730441
+[17:19:43 - Thread-131] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558019983441
+[17:19:45 - Thread-131] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558019985103	Duration: 1662 ms	Simulated time 27644 ms	Ratio 16.632972322503008
+[17:20:20 - Thread-132] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:20:20 - Thread-132] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:20:20 - Thread-132] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:20:20 - Thread-132] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:20:21 - Thread-132] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:20:21 - Thread-132] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:20:21 - Thread-132] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:20:21 - Thread-132] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:20:21 - Thread-132] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:20:21 - Thread-132] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:20:22 - Thread-133] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558020022063
+[17:20:25 - Thread-133] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558020025259	Duration: 3196 ms	Simulated time 27496 ms	Ratio 8.60325406758448
+[17:21:24 - Thread-134] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:21:24 - Thread-134] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:21:25 - Thread-134] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:21:25 - Thread-134] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:21:25 - Thread-134] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:21:25 - Thread-134] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:21:25 - Thread-134] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:21:25 - Thread-134] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:21:25 - Thread-134] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:21:25 - Thread-134] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:21:26 - Thread-135] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558020086317
+[17:21:29 - Thread-135] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558020089171	Duration: 2854 ms	Simulated time 26356 ms	Ratio 9.234758234057463
+[17:21:47 - Thread-136] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:21:47 - Thread-136] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:21:48 - Thread-136] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:21:48 - Thread-136] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:21:48 - Thread-136] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:21:48 - Thread-136] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:21:48 - Thread-136] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:21:48 - Thread-136] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:21:48 - Thread-136] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:21:49 - Thread-136] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:21:49 - Thread-137] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558020109341
+[17:21:50 - Thread-137] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558020110769	Duration: 1428 ms	Simulated time 20914 ms	Ratio 14.645658263305322
+[17:21:51 - Thread-138] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558020111643
+[17:21:53 - Thread-138] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558020113773	Duration: 2130 ms	Simulated time 29152 ms	Ratio 13.686384976525822
+[17:22:10 - Thread-139] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:22:10 - Thread-139] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:22:10 - Thread-139] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:22:11 - Thread-139] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:22:11 - Thread-139] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:22:11 - Thread-139] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:22:11 - Thread-139] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:22:11 - Thread-139] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:22:11 - Thread-139] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:22:11 - Thread-139] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:22:12 - Thread-140] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558020132769
+[17:22:15 - Thread-140] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558020135415	Duration: 2646 ms	Simulated time 25426 ms	Ratio 9.609221466364323
+[17:23:50 - Thread-141] [Simulation.java:422] [INFO] - Simulation random seed: 123456
+[17:23:50 - Thread-141] [CompileContiki.java:140] [INFO] - > make udp-server.sky TARGET=sky 
+[17:23:51 - Thread-141] [CompileContiki.java:140] [INFO] - > make udp-flood.sky TARGET=sky 
+[17:23:51 - Thread-141] [CompileContiki.java:140] [INFO] - > make udp-client.sky TARGET=sky 
+[17:23:51 - Thread-141] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-server.sky
+[17:23:51 - Thread-141] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:23:51 - Thread-141] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-flood.sky
+[17:23:51 - Thread-141] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:23:51 - Thread-141] [MspMote.java:235] [INFO] - Loading firmware from: /home/user/Contiki-ng-Dos-Attacks/Project/udp-client.sky
+[17:23:52 - Thread-141] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[17:23:52 - Thread-142] [Simulation.java:253] [INFO] - Simulation main loop started, system time: 1558020232549
+[17:23:59 - Thread-142] [Simulation.java:312] [INFO] - Simulation main loop stopped, system time: 1558020239377	Duration: 6828 ms	Simulated time 42142 ms	Ratio 6.171939074399531
