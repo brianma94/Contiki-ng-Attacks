@@ -1,0 +1,7 @@
+PREFIX ?= fd00::1/64
+
+connect-router: $(TUNSLIP6)
+	sudo $(TUNSLIP6) $(PREFIX)
+
+connect-router-cooja: $(TUNSLIP6)
+	sudo $(TUNSLIP6) -a 127.0.0.1 $(PREFIX)
