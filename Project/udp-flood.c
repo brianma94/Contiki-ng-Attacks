@@ -25,7 +25,7 @@ PROCESS_THREAD(udp_client_process, ev, data)
   etimer_set(&periodic_timer, SEND_INTERVAL);
   while(1) {
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&periodic_timer));
-    //We just want to send the RPL packet once
+    //We just want to send the RPL packet once 
     if (first) {
         first = false;
         malicious_output(0);
