@@ -20,9 +20,10 @@ void init_flood(){
 }
 
 /* Initialize selector node stats */
-void init_selector(){
-    selector = true;
+void init_select(){
+    select = true;
     icmp_forwarded = icmp_dropped = 0;
+    selecting = false;
 }
 
 /* Initiliaze the information of the neighbors array */
@@ -45,10 +46,10 @@ void flood_input(){
   printf("Received malicious icmp6 from: %s\n", buf);
   
   unsigned char *buffer;
-  char message[10];
+  char message[7];
   buffer = UIP_ICMP_PAYLOAD;
-  memcpy(message,buffer,10);
-  if(!strcmp(message,"malicious")) { //message correct from flood node
+  memcpy(message,buffer,7);
+  if(!strcmp(message,"floods") || !strcmp(message,"select")) { //message correct from flood node
     /* Indicate in the neighbors array that the sender is a malicious node */
     uint8_t i;
     for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
@@ -99,10 +100,14 @@ rpl_icmp6_malicious_output(uip_ipaddr_t *dest, const void *data, uint16_t datale
 }
 
 /* Used to call the main Output function above. */
-void malicious_output(){
-    char message[10];
-    strcpy(message,"malicious"); //message to be sent
-    
+void malicious_output(uint8_t type){
+    char message[7];
+    if (type == 0) { //flooding node
+        strcpy(message,"floods"); //message to be sent
+    }
+    else { //type = 1 --> selector node
+        strcpy(message,"select"); //message to be sent
+    }
     /* Send the message. 1st Param = NULL indicates multicast destination */
     rpl_icmp6_malicious_output(NULL, &message, sizeof(message));
 }
@@ -112,7 +117,10 @@ void add_all_nodes(){
     if (flood) {
         uint8_t i;
         for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
-            if (!neighbors[i].used) {
+            /* IP address already stored*/
+            if (neighbors[i].used && uip_ipaddr_cmp(&neighbors[i].ipaddr, &UIP_IP_BUF->srcipaddr)) return;
+            /* IP address not stored - store it and set it as used */
+            else if (!neighbors[i].used) {
                 neighbors[i].ipaddr = UIP_IP_BUF->srcipaddr;
                 neighbors[i].used = true;
                 return;
@@ -123,8 +131,15 @@ void add_all_nodes(){
 
 /* Launch the Hello Flood attack */
 void launch_flooding_attack(){
-      int i = 0;
-      while (i<5){
-        ++i;
-      }
+      uint8_t i;
+      printf("ips: ");
+      for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
+            if (neighbors[i].used) {
+                char buff[21];
+                uiplib_ipaddr_snprint(buff, sizeof(buff), &neighbors[i].ipaddr);
+                printf("%s, ", buff);
+            }
+            else break;
+       }
+       printf("\n");
 }

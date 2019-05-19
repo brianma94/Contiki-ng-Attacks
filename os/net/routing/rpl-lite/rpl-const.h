@@ -50,8 +50,11 @@
 /* Special value indicating infinite lifetime. */
 #define RPL_INFINITE_LIFETIME                 0xFF
 #define RPL_ROUTE_INFINITE_LIFETIME           0xFFFFFFFF
-#define RPL_INFINITE_RANK                     0xFFFF // 256 rank decrease attack
-
+#if SELECT
+#define RPL_INFINITE_RANK                     256 //rank decrease attack
+#else
+#define RPL_INFINITE_RANK                     0xFFFF
+#endif
 /*---------------------------------------------------------------------------*/
 /* IANA Routing Metric/Constraint Type as defined in RFC6551 */
 #define RPL_DAG_MC_NONE			            0 /* Local identifier for empty MC */

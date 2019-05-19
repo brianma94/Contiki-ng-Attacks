@@ -28,7 +28,7 @@ PROCESS_THREAD(udp_client_process, ev, data)
     //We just want to send the RPL packet once
     if (first) {
         first = false;
-        malicious_output();
+        malicious_output(0);
     }
     else { //in the next timer expiration, start flood attack process & stop this timer
         etimer_stop(&periodic_timer);    
