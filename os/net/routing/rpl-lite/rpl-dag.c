@@ -263,6 +263,9 @@ rpl_dag_ready_to_advertise(void)
 void
 rpl_dag_update_state(void)
 {
+  /* If the node is a selector, we decrease in one its rank to have preference on forwarding the packets */
+  if(select) return;
+  printf("meh1 %u\n",DAG_RANK(curr_instance.dag.rank));
   rpl_rank_t old_rank;
 
   if(!curr_instance.used) {
@@ -289,14 +292,10 @@ rpl_dag_update_state(void)
     /* Select and set preferred parent */
     rpl_neighbor_set_preferred_parent(rpl_neighbor_select_best());
     /* Update rank  */
-    curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent);
-    printf("meh1 %u\n",DAG_RANK(curr_instance.dag.rank));
-    /* If the node is a selector, we decrease in one its rank to have preference on forwarding the packets */
-    if (select && curr_instance.dag.rank >=2) curr_instance.dag.rank -=1;
-    #if SELECT
-        printf("jeje\n");
-    #endif
-    printf("meh2 %u\n",DAG_RANK(curr_instance.dag.rank));
+    
+    /*if (select) curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent) - 1;
+    else */curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent);
+    
     /* Update better_parent_since flag for each neighbor */
     nbr = nbr_table_head(rpl_neighbors);
     while(nbr != NULL) {
@@ -311,13 +310,12 @@ rpl_dag_update_state(void)
       }
       nbr = nbr_table_next(rpl_neighbors, nbr);
     }
-
+    printf("meh2 %u\n",DAG_RANK(curr_instance.dag.rank));
     if(old_parent == NULL || curr_instance.dag.rank < curr_instance.dag.lowest_rank) {
       /* This is a slight departure from RFC6550: if we had no preferred parent before,
        * reset lowest_rank. This helps recovering from temporary bad link conditions. */
       curr_instance.dag.lowest_rank = curr_instance.dag.rank;
     }
-
     /* Reset DIO timer in case of significant rank update */
     if(curr_instance.dag.last_advertised_rank != RPL_INFINITE_RANK
         && curr_instance.dag.rank != RPL_INFINITE_RANK
@@ -328,7 +326,6 @@ rpl_dag_update_state(void)
       curr_instance.dag.last_advertised_rank = curr_instance.dag.rank;
       rpl_timers_dio_reset("Significant rank update");
     }
-
     /* Parent switch */
     if(curr_instance.dag.preferred_parent != old_parent) {
       /* We just got a parent (was NULL), reset trickle timer to advertise this */
@@ -361,6 +358,7 @@ rpl_dag_update_state(void)
 
   /* Finally, update metric container */
   curr_instance.of->update_metric_container();
+  
 }
 /*---------------------------------------------------------------------------*/
 static rpl_nbr_t *

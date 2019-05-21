@@ -3,10 +3,11 @@
 #include "net/netstack.h"
 #include "net/routing/rpl-lite/rpl-timers.h"
 #include "net/routing/rpl-lite/rpl-icmp6-malicious.h"
-//#define LOG_MODULE "Node"
-#define LOG_LEVEL LOG_LEVEL_INFO
+//#define LOG_MODULE "App"
+//#define LOG_LEVEL LOG_LEVEL_INFO
 #define SEND_INTERVAL		  (30 * CLOCK_SECOND)
 #define ATTACK_START          SEND_INTERVAL
+
 /*---------------------------------------------------------------------------*/
 PROCESS(udp_client_process, "UDP client");
 PROCESS(selecting_process, "Selector");
@@ -18,7 +19,7 @@ PROCESS_THREAD(udp_client_process, ev, data)
   static struct etimer periodic_timer;
   static bool first = true;
   PROCESS_BEGIN();
-  
+
   /* Init of flooding node stats */
   init_select();
   

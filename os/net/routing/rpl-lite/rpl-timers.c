@@ -509,7 +509,6 @@ handle_periodic_timer(void *ptr)
     rpl_dag_periodic(PERIODIC_DELAY_SECONDS);
     uip_sr_periodic(PERIODIC_DELAY_SECONDS);
   }
-  //printf("New Rank: %u\n",curr_instance.dag.rank);
   if(!curr_instance.used ||
       curr_instance.dag.preferred_parent == NULL ||
       curr_instance.dag.rank == RPL_INFINITE_RANK) {
@@ -519,7 +518,6 @@ handle_periodic_timer(void *ptr)
   /* Useful because part of the state update is time-dependent, e.g.,
   the meaning of last_advertised_rank changes with time */
   rpl_dag_update_state();
-  
   if(LOG_INFO_ENABLED) {
     rpl_neighbor_print_list("Periodic");
     rpl_dag_root_print_links("Periodic");
@@ -564,8 +562,9 @@ rpl_timers_schedule_state_update(void)
 static void
 handle_state_update(void *ptr)
 {
+  printf("rank1 %u\n",DAG_RANK(curr_instance.dag.rank));
   rpl_dag_update_state();
-  printf("rank %u\n",DAG_RANK(curr_instance.dag.rank));
+  printf("rank2 %u\n",DAG_RANK(curr_instance.dag.rank));
 }
 
 /** @}*/
