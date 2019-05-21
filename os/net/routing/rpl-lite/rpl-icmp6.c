@@ -154,7 +154,6 @@ void
 rpl_icmp6_dis_output(uip_ipaddr_t *addr)
 {
   unsigned char *buffer;
-
   /* Make sure we're up-to-date before sending data out */
   rpl_dag_update_state();
 
@@ -340,7 +339,6 @@ rpl_icmp6_dio_output(uip_ipaddr_t *uc_addr)
   unsigned char *buffer;
   int pos;
   uip_ipaddr_t *addr = uc_addr;
-
   /* Make sure we're up-to-date before sending data out */
   rpl_dag_update_state();
 
@@ -556,7 +554,6 @@ rpl_icmp6_dao_output(uint8_t lifetime)
   int pos;
   const uip_ipaddr_t *prefix = rpl_get_global_address();
   uip_ipaddr_t *parent_ipaddr = rpl_neighbor_get_ipaddr(curr_instance.dag.preferred_parent);
-
   /* Make sure we're up-to-date before sending data out */
   rpl_dag_update_state();
 
@@ -666,7 +663,6 @@ void
 rpl_icmp6_dao_ack_output(uip_ipaddr_t *dest, uint8_t sequence, uint8_t status)
 {
   unsigned char *buffer;
-
   /* Make sure we're up-to-date before sending data out */
   rpl_dag_update_state();
 

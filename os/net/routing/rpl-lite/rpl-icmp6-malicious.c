@@ -75,7 +75,6 @@ void flood_input(){
 void
 rpl_icmp6_malicious_output(uip_ipaddr_t *dest, const void *data, uint16_t datalen)
 {
-
   /* Make sure we're up-to-date before sending data out */
   rpl_dag_update_state();
   

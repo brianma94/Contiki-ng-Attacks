@@ -264,10 +264,10 @@ void
 rpl_dag_update_state(void)
 {
   /* If the node is a selector, we decrease in one its rank to have preference on forwarding the packets */
-  if(select) return;
   printf("meh1 %u\n",DAG_RANK(curr_instance.dag.rank));
+  
   rpl_rank_t old_rank;
-
+  
   if(!curr_instance.used) {
     return;
   }
@@ -292,10 +292,9 @@ rpl_dag_update_state(void)
     /* Select and set preferred parent */
     rpl_neighbor_set_preferred_parent(rpl_neighbor_select_best());
     /* Update rank  */
-    
-    /*if (select) curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent) - 1;
-    else */curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent);
-    
+    if (select) {curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent) - 1;}
+    else curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent);
+    printf("meh2 %u\n",DAG_RANK(curr_instance.dag.rank));
     /* Update better_parent_since flag for each neighbor */
     nbr = nbr_table_head(rpl_neighbors);
     while(nbr != NULL) {
@@ -310,7 +309,7 @@ rpl_dag_update_state(void)
       }
       nbr = nbr_table_next(rpl_neighbors, nbr);
     }
-    printf("meh2 %u\n",DAG_RANK(curr_instance.dag.rank));
+    
     if(old_parent == NULL || curr_instance.dag.rank < curr_instance.dag.lowest_rank) {
       /* This is a slight departure from RFC6550: if we had no preferred parent before,
        * reset lowest_rank. This helps recovering from temporary bad link conditions. */
