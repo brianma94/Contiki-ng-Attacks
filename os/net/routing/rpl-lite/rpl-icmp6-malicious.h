@@ -3,6 +3,7 @@
 
 #include "net/routing/rpl-lite/rpl.h"
 #include "net/routing/rpl-lite/rpl-const.h"
+#include "net/routing/rpl-lite/rpl-icmp6.h"
 #include "net/ipv6/uip-icmp6.h"
 #include "net/ipv6/uiplib.h"
 #include "net/ipv6/uip.h"
@@ -17,8 +18,9 @@ typedef struct neighbor_address {
 
 neighbor_address neighbors[16];
 int dis_sent_flood;
-int icmp_forwarded;
+int icmp_sent;
 int icmp_dropped;
+int udp_dropped;
 
 void init_neighbors_array();
 void rpl_icmp6_flood_init();
@@ -29,4 +31,5 @@ void rpl_icmp6_malicious_output(uip_ipaddr_t *dest, const void *data, uint16_t d
 void malicious_output(uint8_t type);
 void add_all_nodes();
 void launch_flooding_attack();
+void start_filtering();
 #endif

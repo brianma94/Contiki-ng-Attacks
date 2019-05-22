@@ -265,7 +265,6 @@ rpl_dag_update_state(void)
 {
   /* If the node is a selector, we decrease in one its rank to have preference on forwarding the packets */
   printf("meh1 %u\n",DAG_RANK(curr_instance.dag.rank));
-  
   rpl_rank_t old_rank;
   
   if(!curr_instance.used) {

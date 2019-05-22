@@ -44,7 +44,7 @@
 
 #ifndef ENERGEST_CONF_ON
 /* Energest is disabled by default */
-#define ENERGEST_CONF_ON 0
+#define ENERGEST_CONF_ON 1
 #endif /* ENERGEST_CONF_ON */
 
 #ifndef ENERGEST_CURRENT_TIME

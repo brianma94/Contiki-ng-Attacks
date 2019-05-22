@@ -84,7 +84,6 @@
 #include "net/ipv6/uipopt.h"
 #include "net/ipv6/uipbuf.h"
 #include "net/linkaddr.h"
-
 /* For memcmp */
 #include <string.h>
 

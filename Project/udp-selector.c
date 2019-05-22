@@ -47,16 +47,19 @@ PROCESS_THREAD(selecting_process, ev, data)
   static struct etimer timer;
   PROCESS_BEGIN();
   
-  selecting = true; //selecting mode on
+  start_filtering(); //selecting mode on
 
   etimer_set(&timer, CLOCK_SECOND);
   while(1) {
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
     if (selecting) {
         /* Launch attack */
+        printf("UDP packets dropped: %d\n", udp_dropped);
+        printf ("ICMP packets dropped: %d, forwarded: %d\n",icmp_dropped, icmp_sent);
         printf("selecting\n");
 //        launch_flooding_attack();
-        etimer_stop(&timer);
+       // etimer_stop(&timer);
+       etimer_reset(&timer);
     }
   }
   PROCESS_END();

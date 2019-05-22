@@ -80,7 +80,7 @@
 #include "net/ipv6/uip-ds6.h"
 #include "net/ipv6/multicast/uip-mcast6.h"
 #include "net/routing/routing.h"
-
+#include "net/routing/rpl-lite/rpl-icmp6-malicious.h"
 #if UIP_ND6_SEND_NS
 #include "net/ipv6/uip-ds6-nbr.h"
 #endif /* UIP_ND6_SEND_NS */
@@ -88,7 +88,7 @@
 /* Log configuration */
 #include "sys/log.h"
 #define LOG_MODULE "IPv6"
-#define LOG_LEVEL LOG_LEVEL_IPV6
+#define LOG_LEVEL LOG_LEVEL_DBG //IPV6
 
 #if UIP_STATISTICS == 1
 struct uip_stats uip_stat;
@@ -1239,12 +1239,18 @@ uip_process(uint8_t flag)
         /* Send ICMPv6 error, prepared by the function that just returned false */
         goto send;
       }
-      LOG_INFO("Forwarding packet to next hop ");
+      LOG_INFO("Forwarding2 packet to next hop "); //sending to parent or root from child
       LOG_INFO_6ADDR(&UIP_IP_BUF->destipaddr);
       LOG_INFO_("\n");
-      
-      UIP_STAT(++uip_stat.ip.forwarded);
-      goto send;
+      /* GreyHole Attack. Don't forward UDP packets from children to parent */
+      if (select && selecting){
+        ++udp_dropped;
+        goto drop;
+      }
+      else{
+          UIP_STAT(++uip_stat.ip.forwarded);
+          goto send;
+      }
     } else {
       if((uip_is_addr_linklocal(&UIP_IP_BUF->srcipaddr)) &&
          (!uip_is_addr_unspecified(&UIP_IP_BUF->srcipaddr)) &&
@@ -1358,7 +1364,7 @@ uip_process(uint8_t flag)
             goto send;
           }
 
-          LOG_INFO("Forwarding packet to next hop ");
+          LOG_INFO("Forwarding packet to next hop "); //sending to child node
           LOG_INFO_6ADDR(&UIP_IP_BUF->destipaddr);
           LOG_INFO_("\n");
           printf("forwarding\n");
