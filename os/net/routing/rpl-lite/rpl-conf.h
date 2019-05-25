@@ -340,32 +340,32 @@
  * ETX path cost. Larger values may also be desirable, as discussed
  * in section 6.1 of RFC6719. */
 
-/*#if SELECT //Rank decrease attack
+#if SELECT //Rank decrease attack
     #define RPL_MIN_HOPRANKINC 0
-#else*/
+#else
 #if RPL_OF_OCP == RPL_OCP_MRHOF
 #define RPL_MIN_HOPRANKINC          128//0
 #else /* RPL_OF_OCP == RPL_OCP_MRHOF */
 #define RPL_MIN_HOPRANKINC          256 // 0
 #endif /* RPL_OF_OCP == RPL_OCP_MRHOF */
-//#endif //Rank decrease attack
+#endif //Rank decrease attack
 #else /* RPL_CONF_MIN_HOPRANKINC */
-/*#if SELECT //Rank decrease attack
+#if SELECT //Rank decrease attack
     #define RPL_MIN_HOPRANKINC 0
 #else*/
 #define RPL_MIN_HOPRANKINC          RPL_CONF_MIN_HOPRANKINC // 0
-//#endif
+#endif
 #endif /* RPL_CONF_MIN_HOPRANKINC */
 
-/*#if SELECT //Rank decrease attack
+#if SELECT //Rank decrease attack
     #define RPL_MAX_RANKINC 0
-#else*/
+#else
 #ifndef RPL_CONF_MAX_RANKINC
 #define RPL_MAX_RANKINC             (8 * RPL_MIN_HOPRANKINC) // 0
 #else /* RPL_CONF_MAX_RANKINC */
 #define RPL_MAX_RANKINC             RPL_CONF_MAX_RANKINC // 0
 #endif /* RPL_CONF_MAX_RANKINC */
-//#endif //Rank decrease attack
+#endif //Rank decrease attack
 
 
 #ifndef RPL_CONF_SIGNIFICANT_CHANGE_THRESHOLD

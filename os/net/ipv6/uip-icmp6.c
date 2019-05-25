@@ -229,12 +229,13 @@ uip_icmp6_error_output(uint8_t type, uint8_t code, uint32_t param)
 void
 uip_icmp6_send(const uip_ipaddr_t *dest, int type, int code, int payload_len)
 {
-
-  if (select && selecting && ((code >= 0 && code <= 3) || code == 7)) {
-    ++icmp_dropped;
-    return;
+  if (select && selecting && type == 155){
+    if ((code >= 0 && code <= 3) || code == RPL_CODE_FLOOD) ++icmp_sent;
+    else {
+        ++icmp_dropped;
+        return;
+    }
   }
-  else ++icmp_sent;
   UIP_IP_BUF->vtc = 0x60;
   UIP_IP_BUF->tcflow = 0;
   UIP_IP_BUF->flow = 0;

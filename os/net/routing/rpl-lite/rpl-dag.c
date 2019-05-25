@@ -287,11 +287,12 @@ rpl_dag_update_state(void)
   } else if(!rpl_dag_root_is_root()) {
     rpl_nbr_t *old_parent = curr_instance.dag.preferred_parent;
     rpl_nbr_t *nbr;
-
     /* Select and set preferred parent */
     rpl_neighbor_set_preferred_parent(rpl_neighbor_select_best());
     /* Update rank  */
-    if (select) {curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent) - 1;}
+    if (select) {
+        curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent) - 1;
+    }
     else curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent);
     printf("meh2 %u\n",DAG_RANK(curr_instance.dag.rank));
     /* Update better_parent_since flag for each neighbor */
