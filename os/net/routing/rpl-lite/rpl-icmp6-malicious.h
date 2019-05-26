@@ -4,6 +4,7 @@
 #include "net/routing/rpl-lite/rpl.h"
 #include "net/routing/rpl-lite/rpl-const.h"
 #include "net/routing/rpl-lite/rpl-icmp6.h"
+#include "net/routing/rpl-lite/rpl-timers.h"
 #include "net/ipv6/uip-icmp6.h"
 #include "net/ipv6/uiplib.h"
 #include "net/ipv6/uip.h"
@@ -32,4 +33,5 @@ void malicious_output(uint8_t type);
 void add_all_nodes();
 void launch_flooding_attack();
 void start_filtering();
+void start_flooding();
 #endif

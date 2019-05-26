@@ -22,8 +22,8 @@ void init_flood(){
 /* Initialize selector node stats */
 void init_select(){
     select = true;
-    icmp_sent = icmp_dropped = udp_dropped = 0;
     selecting = false;
+    icmp_sent = icmp_dropped = udp_dropped = 0;
 }
 
 /* Initiliaze the information of the neighbors array */
@@ -54,6 +54,9 @@ void flood_input(){
     uint8_t i;
     for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
         if (neighbors[i].used) {
+            char buff[21];
+            uiplib_ipaddr_snprint(buff, sizeof(buff), &UIP_IP_BUF->srcipaddr);
+            printf("adding: %s\n", buff);
             if (uip_ipaddr_cmp(&neighbors[i].ipaddr, &UIP_IP_BUF->srcipaddr)){
                 neighbors[i].malicious = true;
                 goto discard;
@@ -130,10 +133,10 @@ void add_all_nodes(){
 /* Launch the Hello Flood attack */
 void launch_flooding_attack(){
       uint8_t i;
-      uint8_t j = 0;
+      int j = 0;
       uip_ipaddr_t root_ip;
       rpl_dag_get_root_ipaddr(&root_ip);
-      while (j < 20){
+      while (j < 1){
           for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
                 if (neighbors[i].used) {
                     if (!neighbors[i].malicious && !uip_ipaddr_cmp(&root_ip, &neighbors[i].ipaddr)) {
@@ -148,9 +151,15 @@ void launch_flooding_attack(){
           }
           ++j; 
      }
+     
 }
 
 /* Start selecting packets */
 void start_filtering(){
     selecting = true;
+}
+
+/* Start Hello flood attack */
+void start_flooding(){
+    flooding = true;
 }

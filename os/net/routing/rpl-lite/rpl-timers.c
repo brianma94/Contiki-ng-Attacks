@@ -46,7 +46,6 @@
 #include "net/link-stats.h"
 #include "lib/random.h"
 #include "sys/ctimer.h"
-
 /* Log configuration */
 #include "sys/log.h"
 #define LOG_MODULE "RPL"
@@ -85,17 +84,16 @@ static void handle_state_update(void *ptr);
 /*---------------------------------------------------------------------------*/
 static struct ctimer dis_timer; /* Not part of a DAG because when not joined */
 static struct ctimer periodic_timer; /* Not part of a DAG because used for general state maintenance */
-
 /*---------------------------------------------------------------------------*/
 /*------------------------------- DIS -------------------------------------- */
 /*---------------------------------------------------------------------------*/
 void
 rpl_timers_schedule_periodic_dis(void)
 {
-  if(ctimer_expired(&dis_timer)) {
-    clock_time_t expiration_time = RPL_DIS_INTERVAL / 2 + (random_rand() % (RPL_DIS_INTERVAL));
+    clock_time_t expiration_time;
+    if (flood && flooding) expiration_time = 0;
+    else expiration_time = RPL_DIS_INTERVAL / 2 + (random_rand() % (RPL_DIS_INTERVAL));
     ctimer_set(&dis_timer, expiration_time, handle_dis_timer, NULL);
-  }
 }
 /*---------------------------------------------------------------------------*/
 static void
@@ -106,7 +104,8 @@ handle_dis_timer(void *ptr)
        curr_instance.dag.preferred_parent == NULL ||
        curr_instance.dag.rank == RPL_INFINITE_RANK)) {
     /* Send DIS and schedule next */
-    rpl_icmp6_dis_output(NULL);
+    if (flood && flooding)launch_flooding_attack();
+    else rpl_icmp6_dis_output(NULL);
     rpl_timers_schedule_periodic_dis();
   }
 }

@@ -134,7 +134,9 @@ dis_input(void)
 {
   /* Malicious nodes - Get IP addresses of all the neighbors */
   add_all_nodes();
-
+  char buf[21];
+  uiplib_ipaddr_snprint(buf, sizeof(buf), &UIP_IP_BUF->srcipaddr);
+  printf("yeah from %s\n", buf);
   if(!curr_instance.used) {
     LOG_WARN("dis_input: not in an instance yet, discard\n");
     goto discard;
@@ -156,7 +158,6 @@ rpl_icmp6_dis_output(uip_ipaddr_t *addr)
   unsigned char *buffer;
   /* Make sure we're up-to-date before sending data out */
   rpl_dag_update_state();
-
   buffer = UIP_ICMP_PAYLOAD;
   buffer[0] = buffer[1] = 0;
 
