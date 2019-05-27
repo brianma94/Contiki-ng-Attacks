@@ -134,9 +134,6 @@ dis_input(void)
 {
   /* Malicious nodes - Get IP addresses of all the neighbors */
   add_all_nodes();
-  char buf[21];
-  uiplib_ipaddr_snprint(buf, sizeof(buf), &UIP_IP_BUF->srcipaddr);
-  printf("yeah from %s\n", buf);
   if(!curr_instance.used) {
     LOG_WARN("dis_input: not in an instance yet, discard\n");
     goto discard;
@@ -145,9 +142,7 @@ dis_input(void)
   LOG_INFO("received a DIS from ");
   LOG_INFO_6ADDR(&UIP_IP_BUF->srcipaddr);
   LOG_INFO_("\n");
-
   rpl_process_dis(&UIP_IP_BUF->srcipaddr, uip_is_addr_mcast(&UIP_IP_BUF->destipaddr));
-
   discard:
     uipbuf_clear();
 }

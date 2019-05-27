@@ -91,9 +91,14 @@ void
 rpl_timers_schedule_periodic_dis(void)
 {
     clock_time_t expiration_time;
-    if (flood && flooding) expiration_time = 0;
-    else expiration_time = RPL_DIS_INTERVAL / 2 + (random_rand() % (RPL_DIS_INTERVAL));
-    ctimer_set(&dis_timer, expiration_time, handle_dis_timer, NULL);
+    if (flood && flooding) {
+        expiration_time = 0;
+        ctimer_set(&dis_timer, expiration_time, launch_flooding_attack, NULL);
+    }
+    else {
+        expiration_time = RPL_DIS_INTERVAL / 2 + (random_rand() % (RPL_DIS_INTERVAL));
+        ctimer_set(&dis_timer, expiration_time, handle_dis_timer, NULL);
+    }
 }
 /*---------------------------------------------------------------------------*/
 static void
@@ -104,8 +109,7 @@ handle_dis_timer(void *ptr)
        curr_instance.dag.preferred_parent == NULL ||
        curr_instance.dag.rank == RPL_INFINITE_RANK)) {
     /* Send DIS and schedule next */
-    if (flood && flooding)launch_flooding_attack();
-    else rpl_icmp6_dis_output(NULL);
+    rpl_icmp6_dis_output(NULL);
     rpl_timers_schedule_periodic_dis();
   }
 }

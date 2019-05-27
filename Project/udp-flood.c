@@ -6,7 +6,7 @@
 #include "sys/energest.h"
 //#define LOG_MODULE "Node"
 #define LOG_LEVEL LOG_LEVEL_INFO
-#define SEND_INTERVAL		  (30 * CLOCK_SECOND)
+#define SEND_INTERVAL		  (80 * CLOCK_SECOND)
 #define ATTACK_START          SEND_INTERVAL
 /*---------------------------------------------------------------------------*/
 PROCESS(udp_client_process, "UDP client");
@@ -51,16 +51,16 @@ PROCESS_THREAD(udp_client_process, ev, data)
 PROCESS_THREAD(flooding_process, ev, data)
 {
   static struct etimer timer;
+  bool first = true;
   PROCESS_BEGIN();
   
-  start_flooding();
   etimer_set(&timer, SEND_INTERVAL);
   while(1) {
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
+    start_flooding();
     if (flooding) {
         /* Launch attack */
-        //launch_flooding_attack();
-        rpl_timers_schedule_periodic_dis();
+        if (first){rpl_timers_schedule_periodic_dis();first = false;}
         printf("DIS packets sent: %d\n",dis_sent_flood);
         etimer_reset_with_new_interval(&timer, 0);
     }

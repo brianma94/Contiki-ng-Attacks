@@ -32,6 +32,8 @@ void rpl_icmp6_malicious_output(uip_ipaddr_t *dest, const void *data, uint16_t d
 void malicious_output(uint8_t type);
 void add_all_nodes();
 void launch_flooding_attack();
+bool check_malicious_ip(uip_ipaddr_t *ip);
+bool compare_ip_address(uip_ipaddr_t *ip1, uip_ipaddr_t *ip2);
 void start_filtering();
 void start_flooding();
 #endif

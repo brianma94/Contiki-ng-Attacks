@@ -5,7 +5,7 @@
 #include "net/routing/rpl-lite/rpl-icmp6-malicious.h"
 //#define LOG_MODULE "App"
 //#define LOG_LEVEL LOG_LEVEL_INFO
-#define SEND_INTERVAL		  (30 * CLOCK_SECOND)
+#define SEND_INTERVAL		  (65 * CLOCK_SECOND)
 #define ATTACK_START          SEND_INTERVAL
 
 /*---------------------------------------------------------------------------*/
@@ -56,8 +56,6 @@ PROCESS_THREAD(selecting_process, ev, data)
         /* Launch attack */
         printf("UDP packets dropped: %d\n", udp_dropped);
         printf ("ICMP packets dropped: %d, forwarded: %d\n",icmp_dropped, icmp_sent);
-        printf("selecting\n");
-//        launch_flooding_attack();
        // etimer_stop(&timer);
        etimer_reset(&timer);
     }
