@@ -138,7 +138,9 @@ dis_input(void)
     LOG_WARN("dis_input: not in an instance yet, discard\n");
     goto discard;
   }
-
+  char buf[21];
+  uiplib_ipaddr_snprint(buf, sizeof(buf), &UIP_IP_BUF->srcipaddr);
+  printf("yeah from %s\n",buf);
   LOG_INFO("received a DIS from ");
   LOG_INFO_6ADDR(&UIP_IP_BUF->srcipaddr);
   LOG_INFO_("\n");

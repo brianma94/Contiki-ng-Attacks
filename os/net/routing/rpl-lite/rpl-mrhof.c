@@ -132,7 +132,6 @@ static uint16_t
 nbr_path_cost(rpl_nbr_t *nbr)
 {
   uint16_t base;
-
   if(nbr == NULL) {
     return 0xffff;
   }
@@ -153,7 +152,6 @@ nbr_path_cost(rpl_nbr_t *nbr)
 #else /* RPL_WITH_MC */
   base = nbr->rank;
 #endif /* RPL_WITH_MC */
-
   /* path cost upper bound: 0xffff */
   return MIN((uint32_t)base + link_metric_to_rank(nbr_link_metric(nbr)), 0xffff);
 }
@@ -163,14 +161,11 @@ rank_via_nbr(rpl_nbr_t *nbr)
 {
   uint16_t min_hoprankinc;
   uint16_t path_cost;
-
   if(nbr == NULL) {
     return RPL_INFINITE_RANK;
   }
-
   min_hoprankinc = curr_instance.min_hoprankinc;
   path_cost = nbr_path_cost(nbr);
-
   /* Rank lower-bound: nbr rank + min_hoprankinc */
   return MAX(MIN((uint32_t)nbr->rank + min_hoprankinc, RPL_INFINITE_RANK), path_cost);
 }

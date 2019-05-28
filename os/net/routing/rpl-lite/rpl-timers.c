@@ -90,14 +90,16 @@ static struct ctimer periodic_timer; /* Not part of a DAG because used for gener
 void
 rpl_timers_schedule_periodic_dis(void)
 {
-    clock_time_t expiration_time;
-    if (flood && flooding) {
-        expiration_time = 0;
-        ctimer_set(&dis_timer, expiration_time, launch_flooding_attack, NULL);
-    }
-    else {
-        expiration_time = RPL_DIS_INTERVAL / 2 + (random_rand() % (RPL_DIS_INTERVAL));
-        ctimer_set(&dis_timer, expiration_time, handle_dis_timer, NULL);
+    if(ctimer_expired(&dis_timer)) {
+        clock_time_t expiration_time;
+        if (flood && flooding) {
+            expiration_time = 1;
+            ctimer_set(&dis_timer, expiration_time, launch_flooding_attack, NULL);
+        }
+        else {
+            expiration_time = RPL_DIS_INTERVAL / 2 + (random_rand() % (RPL_DIS_INTERVAL));
+            ctimer_set(&dis_timer, expiration_time, handle_dis_timer, NULL);
+        }
     }
 }
 /*---------------------------------------------------------------------------*/

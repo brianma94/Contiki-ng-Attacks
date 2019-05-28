@@ -60,9 +60,12 @@ PROCESS_THREAD(flooding_process, ev, data)
     start_flooding();
     if (flooding) {
         /* Launch attack */
-        if (first){rpl_timers_schedule_periodic_dis();first = false;}
+        if (first){
+            rpl_timers_schedule_periodic_dis();
+            first = false;
+        }
         printf("DIS packets sent: %d\n",dis_sent_flood);
-        etimer_reset_with_new_interval(&timer, 0);
+        etimer_reset_with_new_interval(&timer, CLOCK_SECOND);
     }
   }
   PROCESS_END();
