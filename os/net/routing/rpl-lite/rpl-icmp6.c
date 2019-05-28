@@ -165,7 +165,6 @@ rpl_icmp6_dis_output(uip_ipaddr_t *addr)
   LOG_INFO("sending a DIS to ");
   LOG_INFO_6ADDR(addr);
   LOG_INFO_("\n");
-
   uip_icmp6_send(addr, ICMP6_RPL, RPL_CODE_DIS, 2);
 }
 /*---------------------------------------------------------------------------*/
@@ -179,7 +178,6 @@ dio_input(void)
   int i;
   int len;
   uip_ipaddr_t from;
-  
   /* Malicious nodes - Get IP addresses of all the neighbors */
   add_all_nodes();
   
@@ -339,7 +337,6 @@ rpl_icmp6_dio_output(uip_ipaddr_t *uc_addr)
   uip_ipaddr_t *addr = uc_addr;
   /* Make sure we're up-to-date before sending data out */
   rpl_dag_update_state();
-
   if(rpl_get_leaf_only()) {
     /* In leaf mode, we only send DIO messages as unicasts in response to
        unicast DIS messages. */

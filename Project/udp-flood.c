@@ -62,6 +62,7 @@ PROCESS_THREAD(flooding_process, ev, data)
         /* Launch attack */
         if (first){
             rpl_timers_schedule_periodic_dis();
+            //rpl_timers_dio_reset("Reachable");
             first = false;
         }
         printf("DIS packets sent: %d\n",dis_sent_flood);
