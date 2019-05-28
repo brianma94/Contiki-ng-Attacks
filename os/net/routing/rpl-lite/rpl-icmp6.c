@@ -171,6 +171,10 @@ rpl_icmp6_dis_output(uip_ipaddr_t *addr)
 static void
 dio_input(void)
 {
+  //if (flood && flooding) goto discard;
+  char buf[21];
+  uiplib_ipaddr_snprint(buf, sizeof(buf), &UIP_IP_BUF->srcipaddr);
+  printf("gotcha from %s\n",buf);
   unsigned char *buffer;
   uint8_t buffer_length;
   rpl_dio_t dio;

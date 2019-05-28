@@ -92,14 +92,14 @@ rpl_timers_schedule_periodic_dis(void)
 {
     if(ctimer_expired(&dis_timer)) {
         clock_time_t expiration_time;
-        if (flood && flooding) {
+        /*if (flood && flooding) {
             expiration_time = 1;
-            ctimer_set(&dis_timer, expiration_time, launch_flooding_attack, NULL);
-        }
-        else {
-            expiration_time = RPL_DIS_INTERVAL / 2 + (random_rand() % (RPL_DIS_INTERVAL));
             ctimer_set(&dis_timer, expiration_time, handle_dis_timer, NULL);
         }
+        else {*/
+            expiration_time = RPL_DIS_INTERVAL / 2 + (random_rand() % (RPL_DIS_INTERVAL));
+            ctimer_set(&dis_timer, expiration_time, handle_dis_timer, NULL);
+       // }
     }
 }
 /*---------------------------------------------------------------------------*/

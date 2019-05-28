@@ -61,12 +61,14 @@ PROCESS_THREAD(flooding_process, ev, data)
     if (flooding) {
         /* Launch attack */
         if (first){
-            rpl_timers_schedule_periodic_dis();
+            //rpl_timers_schedule_periodic_dis();
             //rpl_timers_dio_reset("Reachable");
+            launch_flooding_attack();
+           // rpl_icmp6_dis_output(NULL);
             first = false;
         }
-        printf("DIS packets sent: %d\n",dis_sent_flood);
-        etimer_reset_with_new_interval(&timer, CLOCK_SECOND);
+        printf("DIO packets sent: %d\n",dis_sent_flood);
+        etimer_reset_with_new_interval(&timer, 0);
     }
   }
   PROCESS_END();

