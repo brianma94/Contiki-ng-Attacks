@@ -144,7 +144,7 @@ void launch_flooding_attack(){
       uip_ipaddr_t root_ip;
       rpl_dag_get_root_ipaddr(&root_ip);
       while (j < 1){
-          for(i=1; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
+          for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
                 if (neighbors[i].used) {
                     if (!neighbors[i].malicious && !compare_ip_address(&root_ip, &neighbors[i].ipaddr)) {
                         //rpl_icmp6_dio_output(&neighbors[i].ipaddr);
@@ -154,6 +154,11 @@ void launch_flooding_attack(){
                         uiplib_ipaddr_snprint(buf, sizeof(buf), &neighbors[i].ipaddr);
                         printf("sending DIO %d to %s\n",i,buf);
                         ++dis_sent_flood;
+                    }
+                    else{
+                        char buf[21];
+                        uiplib_ipaddr_snprint(buf, sizeof(buf), &neighbors[i].ipaddr);
+                        printf("NOT sending DIO %d to %s\n",i,buf);
                     }
                 }
                 else break;

@@ -54,7 +54,7 @@
 /* Log configuration */
 #include "sys/log.h"
 #define LOG_MODULE "RPL"
-#define LOG_LEVEL LOG_LEVEL_RPL
+#define LOG_LEVEL LOG_LEVEL_DBG
 
 /*---------------------------------------------------------------------------*/
 #define RPL_DIO_GROUNDED                 0x80
@@ -172,9 +172,6 @@ static void
 dio_input(void)
 {
   //if (flood && flooding) goto discard;
-  char buf[21];
-  uiplib_ipaddr_snprint(buf, sizeof(buf), &UIP_IP_BUF->srcipaddr);
-  printf("gotcha from %s\n",buf);
   unsigned char *buffer;
   uint8_t buffer_length;
   rpl_dio_t dio;
@@ -326,7 +323,9 @@ dio_input(void)
          (unsigned)dio.version,
          (unsigned)dio.dtsn,
          (unsigned)dio.rank);
-
+  char buf[21];
+  uiplib_ipaddr_snprint(buf, sizeof(buf), &UIP_IP_BUF->srcipaddr);
+  printf("gotcha from %s\n",buf);
   rpl_process_dio(&from, &dio);
 
 discard:
@@ -450,7 +449,6 @@ rpl_icmp6_dio_output(uip_ipaddr_t *uc_addr)
          (unsigned)curr_instance.dag.rank);
   LOG_INFO_6ADDR(addr);
   LOG_INFO_("\n");
-
   uip_icmp6_send(addr, ICMP6_RPL, RPL_CODE_DIO, pos);
 }
 /*---------------------------------------------------------------------------*/
