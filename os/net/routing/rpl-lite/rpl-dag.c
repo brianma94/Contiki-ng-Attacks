@@ -464,7 +464,6 @@ process_dio_from_current_dag(uip_ipaddr_t *from, rpl_dio_t *dio)
     LOG_INFO("refreshing lifetime\n");
     curr_instance.dag.lifetime = RPL_LIFETIME(RPL_DAG_LIFETIME);
   }
-
   /* If the source is our preferred parent and it increased DTSN, we increment
    * our DTSN in turn and schedule a DAO (see RFC6550 section 9.6.) */
   if(curr_instance.mop != RPL_MOP_NO_DOWNWARD_ROUTES) {
@@ -603,7 +602,6 @@ rpl_process_dio(uip_ipaddr_t *from, rpl_dio_t *dio)
       return;
     }
   }
-
   if(curr_instance.used
       && curr_instance.instance_id == dio->instance_id
       && uip_ipaddr_cmp(&curr_instance.dag.dag_id, &dio->dag_id)) {

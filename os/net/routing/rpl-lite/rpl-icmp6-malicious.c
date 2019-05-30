@@ -143,6 +143,7 @@ void launch_flooding_attack(){
       while (j < 1){
           for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
                 if (neighbors[i].used) {
+                    /* If is not malicious and is not the root --> flood */
                     if (!neighbors[i].malicious && !compare_ip_address(&root_ip, &neighbors[i].ipaddr)) {
                         //rpl_icmp6_dio_output(&neighbors[i].ipaddr);
                         rpl_timers_schedule_unicast_dio(rpl_neighbor_get_from_ipaddr(&neighbors[i].ipaddr));
