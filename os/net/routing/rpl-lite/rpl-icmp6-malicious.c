@@ -37,9 +37,6 @@ void init_neighbors_array(){
 void flood_input(){
  /* Only necessary for flood attacker nodes*/
   if (!flood) {
-      char buf[21];
-      uiplib_ipaddr_snprint(buf, sizeof(buf), &UIP_IP_BUF->srcipaddr);
-      printf("yeah from %s\n", buf);
     goto discard;
   }
   /* print who was the sender */
