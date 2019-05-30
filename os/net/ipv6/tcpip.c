@@ -177,7 +177,7 @@ packet_input(void)
       }
     }
 #endif /* UIP_TAG_TC_WITH_VARIABLE_RETRANSMISSIONS */
-
+    
     uip_input();
     if(uip_len > 0) {
       tcpip_ipv6_output();

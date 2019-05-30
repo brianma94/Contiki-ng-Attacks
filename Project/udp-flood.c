@@ -53,7 +53,7 @@ PROCESS_THREAD(flooding_process, ev, data)
   static struct etimer timer;
   bool first = true;
   PROCESS_BEGIN();
-  
+  first = true;
   etimer_set(&timer, SEND_INTERVAL);
   while(1) {
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));

