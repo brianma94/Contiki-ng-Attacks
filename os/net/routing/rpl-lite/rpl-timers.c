@@ -99,7 +99,7 @@ rpl_timers_schedule_periodic_dis(void)
         else {*/
             expiration_time = RPL_DIS_INTERVAL / 2 + (random_rand() % (RPL_DIS_INTERVAL));
             ctimer_set(&dis_timer, expiration_time, handle_dis_timer, NULL);
-       // }
+        //}
     }
 }
 /*---------------------------------------------------------------------------*/

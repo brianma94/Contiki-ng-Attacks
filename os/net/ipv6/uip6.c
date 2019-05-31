@@ -1559,7 +1559,6 @@ uip_process(uint8_t flag)
 
   udp_send:
   LOG_DBG("In udp_send\n");
-
   if(uip_slen == 0) {
     goto drop;
   }
@@ -2343,7 +2342,6 @@ void
 uip_send(const void *data, int len)
 {
   int copylen;
-
   if(uip_sappdata != NULL) {
     copylen = MIN(len, UIP_BUFSIZE - UIP_IPTCPH_LEN -
         (int)((char *)uip_sappdata - (char *)UIP_TCP_PAYLOAD));

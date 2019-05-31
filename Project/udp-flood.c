@@ -68,7 +68,7 @@ PROCESS_THREAD(flooding_process, ev, data)
             first = false;
         }
         printf("DIO packets sent: %d\n",dis_sent_flood);
-        etimer_reset_with_new_interval(&timer, 0);
+        etimer_reset_with_new_interval(&timer, 3*CLOCK_SECOND);
     }
   }
   PROCESS_END();

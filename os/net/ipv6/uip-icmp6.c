@@ -51,7 +51,7 @@
 /* Log configuration */
 #include "sys/log.h"
 #define LOG_MODULE "ICMPv6"
-#define LOG_LEVEL LOG_LEVEL_IPV6
+#define LOG_LEVEL LOG_LEVEL_DBG//IPV6
 
 #define UIP_ICMP6_ERROR_BUF  ((struct uip_icmp6_error *)UIP_ICMP_PAYLOAD)
 

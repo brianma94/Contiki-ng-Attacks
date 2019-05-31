@@ -169,7 +169,7 @@ rpl_icmp6_dis_output(uip_ipaddr_t *addr)
 static void
 dio_input(void)
 {
-  if (flood && flooding) goto discard;
+  //if (flood && flooding) goto discard;
   unsigned char *buffer;
   uint8_t buffer_length;
   rpl_dio_t dio;
