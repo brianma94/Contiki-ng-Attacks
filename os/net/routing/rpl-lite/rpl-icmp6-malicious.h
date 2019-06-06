@@ -21,7 +21,7 @@ neighbor_address neighbors[16];
 int dis_sent_flood;
 int icmp_sent;
 int icmp_dropped;
-int udp_dropped;
+int packets_dropped;
 
 void init_neighbors_array();
 void rpl_icmp6_flood_init();

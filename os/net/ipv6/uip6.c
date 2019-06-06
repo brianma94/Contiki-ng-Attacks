@@ -1242,15 +1242,8 @@ uip_process(uint8_t flag)
       LOG_INFO("Forwarding2 packet to next hop "); //sending to parent or root from child
       LOG_INFO_6ADDR(&UIP_IP_BUF->destipaddr);
       LOG_INFO_("\n");
-      /* GreyHole Attack. Don't forward UDP packets from children to parent */
-      if (select && selecting){
-        ++udp_dropped;
-        goto drop;
-      }
-      else{
-          UIP_STAT(++uip_stat.ip.forwarded);
-          goto send;
-      }
+      UIP_STAT(++uip_stat.ip.forwarded);
+      goto send;
     } else {
       if((uip_is_addr_linklocal(&UIP_IP_BUF->srcipaddr)) &&
          (!uip_is_addr_unspecified(&UIP_IP_BUF->srcipaddr)) &&
@@ -1367,7 +1360,6 @@ uip_process(uint8_t flag)
           LOG_INFO("Forwarding packet to next hop "); //sending to child node
           LOG_INFO_6ADDR(&UIP_IP_BUF->destipaddr);
           LOG_INFO_("\n");
-          printf("forwarding\n");
           UIP_STAT(++uip_stat.ip.forwarded);
 
           goto send; /* Proceed to forwarding */

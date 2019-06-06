@@ -22,7 +22,7 @@ void init_flood(){
 void init_select(){
     select = true;
     selecting = false;
-    icmp_sent = icmp_dropped = udp_dropped = 0;
+    icmp_sent = icmp_dropped = packets_dropped = 0;
 }
 
 /* Initiliaze the information of the neighbors array */

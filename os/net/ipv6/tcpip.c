@@ -41,7 +41,7 @@
 #include "contiki.h"
 #include "contiki-net.h"
 #include "net/ipv6/uip-packetqueue.h"
-
+#include "net/routing/rpl-lite/rpl-icmp6-malicious.h"
 #include "net/ipv6/uip-nd6.h"
 #include "net/ipv6/uip-ds6.h"
 #include "net/ipv6/uip-ds6-nbr.h"
@@ -177,6 +177,18 @@ packet_input(void)
       }
     }
 #endif /* UIP_TAG_TC_WITH_VARIABLE_RETRANSMISSIONS */
+
+    /* Grayhole attack - Only forward ICMP6 packets. */
+    if (select && selecting) {
+        uint8_t packet_protocol;
+        uint8_t *last_header;
+        /* Get the protocol used from the last header */
+        last_header = uipbuf_get_last_header(uip_buf, uip_len, &packet_protocol);
+        if (last_header != NULL && packet_protocol != UIP_PROTO_ICMP6) { 
+            ++packets_dropped; 
+            return;
+        }
+    } 
     
     uip_input();
     if(uip_len > 0) {

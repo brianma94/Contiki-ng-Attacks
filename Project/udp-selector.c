@@ -54,7 +54,7 @@ PROCESS_THREAD(selecting_process, ev, data)
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
     if (selecting) {
         /* Launch attack */
-        printf("UDP packets dropped: %d\n", udp_dropped);
+        printf("UDP packets dropped: %d\n", packets_dropped);
         printf ("ICMP packets dropped: %d, forwarded: %d\n",icmp_dropped, icmp_sent);
        // etimer_stop(&timer);
        etimer_reset(&timer);
