@@ -51,7 +51,7 @@
 /* Log configuration */
 #include "sys/log.h"
 #define LOG_MODULE "RPL"
-#define LOG_LEVEL LOG_LEVEL_RPL
+#define LOG_LEVEL LOG_LEVEL_DBG /*RPL*/
 
 /* A configurable function called after every RPL parent switch */
 #ifdef RPL_CALLBACK_PARENT_SWITCH
@@ -301,7 +301,6 @@ rpl_neighbor_set_preferred_parent(rpl_nbr_t *nbr)
     LOG_INFO_(" -> ");
     LOG_INFO_6ADDR(rpl_neighbor_get_ipaddr(nbr));
     LOG_INFO_("\n");
-
 #ifdef RPL_CALLBACK_PARENT_SWITCH
     RPL_CALLBACK_PARENT_SWITCH(curr_instance.dag.preferred_parent, nbr);
 #endif /* RPL_CALLBACK_PARENT_SWITCH */

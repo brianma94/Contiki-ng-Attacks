@@ -158,7 +158,6 @@ public class Cooja extends Observable {
   private static JApplet applet = null;
   private static final long serialVersionUID = 1L;
   private static Logger logger = Logger.getLogger(Cooja.class);
-
   /**
    * External tools configuration.
    */
@@ -3699,7 +3698,6 @@ public class Cooja extends Observable {
 
         /* Activate plugin */
         startedPlugin.startPlugin();
-
         /* If Cooja not visualized, ignore window configuration */
         if (startedPlugin.getCooja() == null) {
           continue;

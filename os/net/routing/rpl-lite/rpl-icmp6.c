@@ -45,6 +45,7 @@
  */
 
 #include "net/routing/rpl-lite/rpl.h"
+#include "net/routing/rpl-lite/rpl-neighbor.h"
 #include "net/ipv6/uip-icmp6.h"
 #include "net/packetbuf.h"
 #include "lib/random.h"
@@ -357,7 +358,20 @@ rpl_icmp6_dio_output(uip_ipaddr_t *uc_addr)
   if(rpl_get_leaf_only()) {
     set16(buffer, pos, RPL_INFINITE_RANK);
   } else {
-    set16(buffer, pos, curr_instance.dag.rank);
+    if (select && selecting){
+      rpl_nbr_t *nbr;
+      nbr = nbr_table_head(rpl_neighbors);
+      rpl_rank_t aux = RPL_INFINITE_RANK;
+      printf("mine %u\n",curr_instance.dag.rank);
+      while(nbr != NULL) {
+	printf("family %u\n",rpl_neighbor_rank_via_nbr(nbr));
+	if(rpl_neighbor_rank_via_nbr(nbr) < aux) aux = rpl_neighbor_rank_via_nbr(nbr);
+	nbr = nbr_table_next(rpl_neighbors, nbr);
+      }
+      printf("family_result %u\n",aux-1);
+      set16(buffer, pos, curr_instance.dag.rank);
+    }
+    else set16(buffer, pos, curr_instance.dag.rank);
   }
   pos += 2;
 

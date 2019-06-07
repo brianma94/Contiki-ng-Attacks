@@ -290,11 +290,11 @@ rpl_dag_update_state(void)
     /* Select and set preferred parent */
     rpl_neighbor_set_preferred_parent(rpl_neighbor_select_best());
     /* Update rank  */
-    if (select) {
+    /*if (select) {
         curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent) - 1;
     }
-    else curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent);
-    printf("meh2 %u\n",DAG_RANK(curr_instance.dag.rank));
+    else */curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent);
+    printf("meh2 %u\n",curr_instance.dag.rank);
     /* Update better_parent_since flag for each neighbor */
     nbr = nbr_table_head(rpl_neighbors);
     while(nbr != NULL) {

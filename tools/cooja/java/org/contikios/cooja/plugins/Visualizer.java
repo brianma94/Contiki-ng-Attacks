@@ -714,12 +714,12 @@ public class Visualizer extends VisPlugin implements HasQuickHelp {
   @Override
   public void startPlugin() {
     super.startPlugin();
-    if (loadedConfig) {
+    /*if (loadedConfig) {
       return;
-    }
+    }*/
 
     /* Activate default skins */
-    String[] defaultSkins = Cooja.getExternalToolsSetting("VISUALIZER_DEFAULT_SKINS", "").split(";");
+    String[] defaultSkins = {"org.contikios.cooja.plugins.skins.MoteTypeVisualizerSkin","org.contikios.cooja.plugins.skins.TrafficVisualizerSkin","org.contikios.cooja.plugins.skins.UDGMVisualizerSkin","org.contikios.cooja.plugins.skins.IDVisualizerSkin","org.contikios.cooja.plugins.skins.GridVisualizerSkin"};//Cooja.getExternalToolsSetting("VISUALIZER_DEFAULT_SKINS", "").split(";");
     for (String skin : defaultSkins) {
       if (skin.isEmpty()) {
         continue;
@@ -874,7 +874,6 @@ public class Visualizer extends VisPlugin implements HasQuickHelp {
       ((JPopupMenu) menu).add(moteRelationsItem);
       ((JPopupMenu) menu).add(new JSeparator());
     }
-
     for (Class<? extends VisualizerSkin> skinClass : visualizerSkins) {
       /* Should skin be enabled in this simulation? */
       if (!isSkinCompatible(skinClass)) {
@@ -884,7 +883,6 @@ public class Visualizer extends VisPlugin implements HasQuickHelp {
       String description = Cooja.getDescriptionOf(skinClass);
       JCheckBoxMenuItem item = new JCheckBoxMenuItem(description, false);
       item.putClientProperty("skinclass", skinClass);
-
       /* Select skin if active */
       for (VisualizerSkin skin : currentSkins) {
         if (skin.getClass() == skinClass) {
@@ -1602,7 +1600,7 @@ public class Visualizer extends VisPlugin implements HasQuickHelp {
             SwingUtilities.invokeLater(new Runnable() {
               @Override
               public void run() {
-                generateAndActivateSkin(skin);
+                //generateAndActivateSkin(skin);
               }
             });
             wanted = null;
