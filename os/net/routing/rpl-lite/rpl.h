@@ -52,6 +52,7 @@
 #include "net/routing/rpl-lite/rpl-conf.h"
 #include "net/routing/rpl-lite/rpl-types.h"
 #include "net/routing/rpl-lite/rpl-icmp6-malicious.h"
+#include "net/routing/rpl-lite/rpl-icmp6-ids.h"
 #include "net/routing/rpl-lite/rpl-icmp6.h"
 #include "net/routing/rpl-lite/rpl-dag.h"
 #include "net/routing/rpl-lite/rpl-dag-root.h"

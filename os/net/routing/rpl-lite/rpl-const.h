@@ -105,7 +105,9 @@
 #define RPL_CODE_SEC_DAO_ACK           0x83   /* Secure DAO-ACK */
 
 /*Malicious RPL message types*/
-#define RPL_CODE_FLOOD                0x07 /*RPL code for messages between malicious nodes*/
+#define RPL_CODE_FLOOD                0x07 /* RPL code for messages between malicious nodes */
+#define RPL_CODE_IDS		       0x08 /* RPL code for IDS messages */
+#define RPL_CODE_DETECTOR	       0x09 /* RPL code for detector messages */
 /* RPL control message options. */
 #define RPL_OPTION_PAD1                  0
 #define RPL_OPTION_PADN                  1

@@ -1239,6 +1239,7 @@ uip_process(uint8_t flag)
         /* Send ICMPv6 error, prepared by the function that just returned false */
         goto send;
       }
+      printf("forwarding\n");
       LOG_INFO("Forwarding2 packet to next hop "); //sending to parent or root from child
       LOG_INFO_6ADDR(&UIP_IP_BUF->destipaddr);
       LOG_INFO_("\n");

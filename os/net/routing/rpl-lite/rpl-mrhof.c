@@ -153,6 +153,7 @@ nbr_path_cost(rpl_nbr_t *nbr)
   base = nbr->rank;
 #endif /* RPL_WITH_MC */
   /* path cost upper bound: 0xffff */
+  printf("base: %lu linkmetrictorank: %u\n", (uint32_t)base , link_metric_to_rank(nbr_link_metric(nbr)));
   return MIN((uint32_t)base + link_metric_to_rank(nbr_link_metric(nbr)), 0xffff);
 }
 /*---------------------------------------------------------------------------*/
@@ -226,7 +227,6 @@ best_parent(rpl_nbr_t *nbr1, rpl_nbr_t *nbr2)
   if(nbr2 == curr_instance.dag.preferred_parent && within_hysteresis(nbr1)) {
     return nbr2;
   }
-
   return nbr_path_cost(nbr1) < nbr_path_cost(nbr2) ? nbr1 : nbr2;
 }
 /*---------------------------------------------------------------------------*/

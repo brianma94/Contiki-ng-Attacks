@@ -178,7 +178,7 @@ packet_input(void)
     }
 #endif /* UIP_TAG_TC_WITH_VARIABLE_RETRANSMISSIONS */
 
-    /* Grayhole attack - Only forward ICMP6 packets. */
+    /* Grayhole attack - Only forward ICMPv6 packets. */
     if (select && selecting) {
         uint8_t packet_protocol;
         uint8_t *last_header;

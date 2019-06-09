@@ -84,8 +84,18 @@ input_handler_lookup(uint8_t type, uint8_t icode)
 uint8_t
 uip_icmp6_input(uint8_t type, uint8_t icode)
 {
+  /* Grayhole attack: Discard ICMPv6 messages that are not original RPL messages */
+  if (select && selecting){
+    if (type == ICMP6_RPL && (icode < RPL_CODE_DIS || (icode > RPL_CODE_DAO_ACK && icode < RPL_CODE_FLOOD) || icode > RPL_CODE_DETECTOR)) return UIP_ICMP6_INPUT_ERROR;
+    uint8_t i;
+    /* Discard messages with different length of the original RPL messages */
+    for(i=0; i<(uint8_t)( sizeof(pairs) / sizeof(pairs[0])); ++i){
+      if (type == ICMP6_RPL && icode == pairs[i].message && uip_len != pairs[i].length) return UIP_ICMP6_INPUT_ERROR;
+    }
+  }
+  
   uip_icmp6_input_handler_t *handler = input_handler_lookup(type, icode);
-
+  
   if(handler == NULL) {
     return UIP_ICMP6_INPUT_ERROR;
   }

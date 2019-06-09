@@ -46,6 +46,7 @@
 #include "uip-ds6.h"
 #include "uip-ds6-nbr.h"
 #include "net/routing/rpl-lite/rpl-icmp6-malicious.h"
+#include "net/routing/rpl-lite/rpl-icmp6-ids.h"
 /********** Data structures **********/
 
 /* Logical representation of a DAG Information Object (DIO.) */
@@ -71,7 +72,6 @@ struct rpl_dio {
   struct rpl_metric_container mc;
 };
 typedef struct rpl_dio rpl_dio_t;
-
 /* Logical representation of a Destination Advertisement Object (DAO.) */
 struct rpl_dao {
   uip_ipaddr_t parent_addr;

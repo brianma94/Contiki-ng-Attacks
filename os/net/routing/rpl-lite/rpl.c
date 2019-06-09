@@ -204,6 +204,8 @@ init(void)
   rpl_timers_init();
   rpl_icmp6_init();
   rpl_icmp6_flood_init();
+  rpl_icmp6_ids_init();
+  rpl_icmp6_detector_init();
 
   uip_sr_init();
 }

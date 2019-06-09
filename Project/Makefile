@@ -1,6 +1,6 @@
-CONTIKI_PROJECT = udp-client udp-server udp-flood udp-selector
+CONTIKI_PROJECT = udp-client udp-server flood selector ids ids-detector
 all: $(CONTIKI_PROJECT)
-udp-selector.sky: CFLAGS+= -DSELECT=1
-udp-selector.z1: CFLAGS+= -DSELECT=1
+selector.sky: CFLAGS+= -DSELECT=1
+selector.z1: CFLAGS+= -DSELECT=1
 CONTIKI=../
 include $(CONTIKI)/Makefile.include
