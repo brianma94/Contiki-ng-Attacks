@@ -571,9 +571,7 @@ rpl_timers_schedule_state_update(void)
 static void
 handle_state_update(void *ptr)
 {
-  printf("rank1 %u\n",DAG_RANK(curr_instance.dag.rank));
   rpl_dag_update_state();
-  printf("rank2 %u\n",DAG_RANK(curr_instance.dag.rank));
 }
 
 /** @}*/

@@ -2,7 +2,7 @@
 #define LOG_MODULE "RPL"
 #define LOG_LEVEL LOG_LEVEL_INFO
 #define DIO_THRESHOLD 15
-#define HEARTBEAT_MAX 4
+#define HEARTBEAT_MAX 6
 /* Initialize RPL ICMPv6 Flooding message handler */
 UIP_ICMP6_HANDLER(ids_handler, ICMP6_RPL, RPL_CODE_IDS, ids_input);
 UIP_ICMP6_HANDLER(detector_handler, ICMP6_RPL, RPL_CODE_DETECTOR, detector_input);
@@ -49,6 +49,9 @@ void add_hb(uip_ipaddr_t * ip){
   uint8_t i;
   for(i=0; i < (uint8_t)( sizeof(ids_nodes_ip) / sizeof(ids_nodes_ip[0])); ++i){
     if (ids_nodes_ip[i].used && compare_address(ip,&ids_nodes_ip[i].ipaddr)) {
+      char buff[21];
+      uiplib_ipaddr_snprint(buff, sizeof(buff), ip);
+      printf("Received ECHO reply from %s\n", buff);
       ids_nodes_ip[i].hb_sent = 0;
       ids_nodes_ip[i].hb = false;
       return;
@@ -71,17 +74,14 @@ void manage_heartbeat(){
     uip_icmp6_send(&ids_nodes_ip[i].ipaddr, ICMP6_ECHO_REQUEST, 255, 0);
     ++ids_nodes_ip[i].hb_sent;
     if (!ids_nodes_ip[i].hb) ids_nodes_ip[i].hb = true;
-    printf("sending echo message\n");
+    char bufff[21];
+    uiplib_ipaddr_snprint(bufff, sizeof(bufff), &ids_nodes_ip[i].ipaddr);
+    printf("Sending ECHO request to %s\n", bufff);
   }
 }
 void check_malicious(){
   uint8_t i;
   for(i=0; i < (uint8_t)( sizeof(neighbors_ip) / sizeof(neighbors_ip[0])); ++i){
-    if(neighbors_ip[i].used){
-    char buf[21];
-    uiplib_ipaddr_snprint(buf, sizeof(buf), &neighbors_ip[i].ipaddr);
-    printf("attacker %s with count %u\n",buf,neighbors_ip[i].dio_counter);
-    }
     if (neighbors_ip[i].used && neighbors_ip[i].dio_counter > DIO_THRESHOLD) {
       /*ids_message message;
       strcpy(message.message,"warn_DIO");

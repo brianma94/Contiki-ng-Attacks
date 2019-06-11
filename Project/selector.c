@@ -13,7 +13,7 @@
 PROCESS(udp_client_process, "UDP client");
 PROCESS(selecting_process, "Selector");
 PROCESS(energest_process, "Monitoring tool");
-AUTOSTART_PROCESSES(&udp_client_process, &energest_process);
+AUTOSTART_PROCESSES(&udp_client_process/*, &energest_process*/);
 /*---------------------------------------------------------------------------*/
 static inline unsigned long
 to_seconds(uint64_t time)

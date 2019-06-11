@@ -368,11 +368,7 @@ rpl_icmp6_dio_output(uip_ipaddr_t *uc_addr)
     set16(buffer, pos, RPL_INFINITE_RANK);
   } else {
     if (select){
-      rpl_nbr_t *t = rpl_parent_get_from_ipaddr(rpl_neighbor_get_ipaddr(curr_instance.dag.preferred_parent));
-      uip_ipaddr_t *s = rpl_neighbor_get_ipaddr(t);
-      char buff[21];
-      uiplib_ipaddr_snprint(buff, sizeof(buff), s);
-      printf ("falafel %s\n", buff);
+
       uint16_t temp = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent)/2;
       set16(buffer, pos, curr_instance.dag.rank-temp);
     }

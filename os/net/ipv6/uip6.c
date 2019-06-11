@@ -1241,7 +1241,7 @@ uip_process(uint8_t flag)
       }
       
       /* GrayHole attack */
-      if (select && selecting) {
+     /* if (select && selecting) {
 	++icmp_total;
 	// GrayHole attack: Discard Original ICMPv6 messages with suspicious total length (header + payload)
 	if (check_suspicious_length(UIP_ICMP_BUF->type,UIP_ICMP_BUF->icode)){
@@ -1262,7 +1262,7 @@ uip_process(uint8_t flag)
 	  ++icmp_dropped;
 	  goto drop;
 	}
-      }
+      }*/
       
       LOG_INFO("Forwarding2 packet to next hop "); //sending to parent or root from child
       LOG_INFO_6ADDR(&UIP_IP_BUF->destipaddr);
