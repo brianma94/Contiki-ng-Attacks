@@ -51,7 +51,7 @@
 /* Log configuration */
 #include "sys/log.h"
 #define LOG_MODULE "ICMPv6"
-#define LOG_LEVEL LOG_LEVEL_DBG//IPV6
+#define LOG_LEVEL LOG_LEVEL_IPV6
 
 #define UIP_ICMP6_ERROR_BUF  ((struct uip_icmp6_error *)UIP_ICMP_PAYLOAD)
 
@@ -83,17 +83,7 @@ input_handler_lookup(uint8_t type, uint8_t icode)
 /*---------------------------------------------------------------------------*/
 uint8_t
 uip_icmp6_input(uint8_t type, uint8_t icode)
-{
-  /* Grayhole attack: Discard ICMPv6 messages that are not original RPL messages */
-  if (select && selecting){
-    if (type == ICMP6_RPL && (icode < RPL_CODE_DIS || (icode > RPL_CODE_DAO_ACK && icode < RPL_CODE_FLOOD) || icode > RPL_CODE_DETECTOR)) return UIP_ICMP6_INPUT_ERROR;
-    uint8_t i;
-    /* Discard messages with different length of the original RPL messages */
-    for(i=0; i<(uint8_t)( sizeof(pairs) / sizeof(pairs[0])); ++i){
-      if (type == ICMP6_RPL && icode == pairs[i].message && uip_len != pairs[i].length) return UIP_ICMP6_INPUT_ERROR;
-    }
-  }
-  
+{ 
   uip_icmp6_input_handler_t *handler = input_handler_lookup(type, icode);
   
   if(handler == NULL) {
@@ -127,7 +117,6 @@ echo_request_input(void)
   LOG_INFO_(" to ");
   LOG_INFO_6ADDR(&UIP_IP_BUF->destipaddr);
   LOG_INFO_("\n");
-
   /* IP header */
   UIP_IP_BUF->ttl = uip_ds6_if.cur_hop_limit;
 
@@ -139,7 +128,7 @@ echo_request_input(void)
     uip_ipaddr_copy(&UIP_IP_BUF->srcipaddr, &UIP_IP_BUF->destipaddr);
     uip_ipaddr_copy(&UIP_IP_BUF->destipaddr, &tmp_ipaddr);
   }
-
+  
   uip_remove_ext_hdr();
 
   /* Below is important for the correctness of UIP_ICMP_BUF and the
@@ -256,10 +245,8 @@ uip_icmp6_send(const uip_ipaddr_t *dest, int type, int code, int payload_len)
   UIP_ICMP_BUF->icmpchksum = ~uip_icmp6chksum();
 
   uip_len = UIP_IPH_LEN + UIP_ICMPH_LEN + payload_len;
-
   UIP_STAT(++uip_stat.icmp.sent);
   UIP_STAT(++uip_stat.ip.sent);
-
   LOG_INFO("Sending ICMPv6 packet to ");
   LOG_INFO_6ADDR(&UIP_IP_BUF->destipaddr);
   LOG_INFO_(", type %u, code %u, len %u\n", type, code, payload_len);
@@ -271,13 +258,13 @@ echo_reply_input(void)
 {
   int ttl;
   uip_ipaddr_t sender;
-
   LOG_INFO("Received Echo Reply from ");
   LOG_INFO_6ADDR(&UIP_IP_BUF->srcipaddr);
   LOG_INFO_(" to ");
   LOG_INFO_6ADDR(&UIP_IP_BUF->destipaddr);
   LOG_INFO_("\n");
-
+  /* IDS - Set that &UIP_IP_BUF->srcipaddr successfully replied */
+  if (ids) add_hb(&UIP_IP_BUF->srcipaddr);
   uip_ipaddr_copy(&sender, &UIP_IP_BUF->srcipaddr);
   ttl = UIP_IP_BUF->ttl;
 

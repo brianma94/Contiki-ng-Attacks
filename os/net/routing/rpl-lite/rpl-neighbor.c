@@ -296,6 +296,10 @@ void
 rpl_neighbor_set_preferred_parent(rpl_nbr_t *nbr)
 {
   if(curr_instance.dag.preferred_parent != nbr) {
+    uip_ipaddr_t *n = rpl_neighbor_get_ipaddr(nbr);
+    char buff[21];
+    uiplib_ipaddr_snprint(buff, sizeof(buff), n);
+    printf("new parent %s with rank %u\n", buff,rpl_neighbor_rank_via_nbr(nbr));
     LOG_INFO("parent switch: ");
     LOG_INFO_6ADDR(rpl_neighbor_get_ipaddr(curr_instance.dag.preferred_parent));
     LOG_INFO_(" -> ");
@@ -382,15 +386,6 @@ best_parent(int fresh_only)
 
     /* Now we have an acceptable parent, check if it is the new best */
     best = curr_instance.of->best_parent(best, nbr);
-    /*LOG_INFO("current ip ");
-    LOG_INFO_6ADDR(rpl_neighbor_get_ipaddr(curr_instance.dag.preferred_parent));
-    LOG_INFO(" new ip ");
-    LOG_INFO_6ADDR(rpl_neighbor_get_ipaddr(nbr));
-    LOG_INFO_("\n");
-    LOG_INFO("winner ");
-    LOG_INFO_6ADDR(rpl_neighbor_get_ipaddr(best));
-    LOG_INFO_("\n");
-    printf("current %u new %u\n",rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent), rpl_neighbor_rank_via_nbr(nbr));*/
   }
 
   return best;

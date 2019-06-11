@@ -6,13 +6,13 @@
 #include "sys/energest.h"
 //#define LOG_MODULE "Node"
 #define LOG_LEVEL LOG_LEVEL_INFO
-#define SEND_INTERVAL		  (80 * CLOCK_SECOND)
+#define SEND_INTERVAL		  (360 * CLOCK_SECOND)/* 18 min */ /*(120 * CLOCK_SECOND)*/
 #define ATTACK_START          SEND_INTERVAL
 /*---------------------------------------------------------------------------*/
 PROCESS(udp_client_process, "UDP client");
 PROCESS(flooding_process, "Flooding");
 PROCESS(energest_process, "Monitoring tool");
-AUTOSTART_PROCESSES(&udp_client_process, &energest_process);
+AUTOSTART_PROCESSES(&udp_client_process/*, &energest_process*/);
 /*---------------------------------------------------------------------------*/
 static inline unsigned long
 to_seconds(uint64_t time)
@@ -28,7 +28,6 @@ PROCESS_THREAD(udp_client_process, ev, data)
   
   /* Init of flooding node stats */
   init_flood();
-  
   etimer_set(&periodic_timer, SEND_INTERVAL);
   while(1) {
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&periodic_timer));
@@ -59,7 +58,7 @@ PROCESS_THREAD(flooding_process, ev, data)
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
     start_flooding();
     if (flooding) {
-        /* Launch attack */
+        /* Launch attack after 18 min of simulation */
         if (first){
             //rpl_timers_schedule_periodic_dis();
             //rpl_timers_dio_reset("Reachable");

@@ -134,8 +134,7 @@ static void
 dis_input(void)
 {
   /* Malicious nodes - Get IP addresses of all the neighbors */
-  //if (flood && flooding) goto discard;
-  add_all_nodes();
+  if (flood) add_all_nodes();
    if (detector) {
      add_node_and_update(&UIP_IP_BUF->srcipaddr, "DIS");
    }
@@ -185,7 +184,7 @@ dio_input(void)
   int len;
   uip_ipaddr_t from;
   /* Malicious nodes - Get IP addresses of all the neighbors */
-  if (flood) add_all_nodes();
+  if (flood)  add_all_nodes();
   else if (detector) {
     add_node_and_update(&UIP_IP_BUF->srcipaddr, "DIO");
   }
@@ -335,7 +334,6 @@ dio_input(void)
          (unsigned)dio.rank);
   char buf[21];
   uiplib_ipaddr_snprint(buf, sizeof(buf), &UIP_IP_BUF->srcipaddr);
-  printf("gotcha from %s\n",buf);
   rpl_process_dio(&from, &dio);
 
 discard:
@@ -355,7 +353,6 @@ rpl_icmp6_dio_output(uip_ipaddr_t *uc_addr)
        unicast DIS messages. */
     if(uc_addr == NULL) {
       /* Do not send multicast DIO in leaf mode */
-      printf("twitch1\n");
       return;
     }
   }
@@ -370,18 +367,14 @@ rpl_icmp6_dio_output(uip_ipaddr_t *uc_addr)
   if(rpl_get_leaf_only()) {
     set16(buffer, pos, RPL_INFINITE_RANK);
   } else {
-    if (select && selecting){
-      rpl_nbr_t *nbr;
-      nbr = nbr_table_head(rpl_neighbors);
-      rpl_rank_t aux = RPL_INFINITE_RANK;
-      printf("mine %u\n",curr_instance.dag.rank);
-      while(nbr != NULL) {
-	printf("family %u\n",rpl_neighbor_rank_via_nbr(nbr));
-	if(rpl_neighbor_rank_via_nbr(nbr) < aux && curr_instance.dag.rank != rpl_neighbor_rank_via_nbr(nbr)) aux = rpl_neighbor_rank_via_nbr(nbr);
-	nbr = nbr_table_next(rpl_neighbors, nbr);
-      }
-      printf("family_result %u\n",aux);
-      set16(buffer, pos, curr_instance.dag.rank);
+    if (select){
+      rpl_nbr_t *t = rpl_parent_get_from_ipaddr(rpl_neighbor_get_ipaddr(curr_instance.dag.preferred_parent));
+      uip_ipaddr_t *s = rpl_neighbor_get_ipaddr(t);
+      char buff[21];
+      uiplib_ipaddr_snprint(buff, sizeof(buff), s);
+      printf ("falafel %s\n", buff);
+      uint16_t temp = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent)/2;
+      set16(buffer, pos, curr_instance.dag.rank-temp);
     }
     else set16(buffer, pos, curr_instance.dag.rank);
   }
@@ -424,7 +417,6 @@ rpl_icmp6_dio_output(uip_ipaddr_t *uc_addr)
       } else {
         LOG_ERR("unable to send DIO because of unsupported DAG MC type %u\n",
                (unsigned)curr_instance.mc.type);
-	printf("twitch2\n");
         return;
       }
     }
@@ -487,13 +479,12 @@ dao_input(void)
   int len;
   int i;
   uip_ipaddr_t from;
-  
   /* Malicious nodes - Get IP addresses of all the neighbors */
   if (flood) add_all_nodes();
-  if (detector) {
+  else if (detector) {
     add_node_and_update(&UIP_IP_BUF->srcipaddr, "DAO");
   }
-  if (ids) {
+  else if (ids) {
     add_node_and_update_IDS(&UIP_IP_BUF->srcipaddr, "DAO");
   }
   memset(&dao, 0, sizeof(dao));
@@ -555,7 +546,11 @@ dao_input(void)
         break;
     }
   }
-
+      char buff[21];
+      char buf[21];
+      uiplib_ipaddr_snprint(buf, sizeof(buf), &UIP_IP_BUF->srcipaddr);
+      uiplib_ipaddr_snprint(buff, sizeof(buff), &dao.parent_addr);
+      printf("receiver: %s    favourite: %s\n",buf,buff);
   /* Destination Advertisement Object */
   LOG_INFO("received a %sDAO from ", dao.lifetime == 0 ? "No-path " : "");
   LOG_INFO_6ADDR(&UIP_IP_BUF->srcipaddr);
@@ -644,7 +639,6 @@ rpl_icmp6_dao_output(uint8_t lifetime)
   LOG_INFO_(", parent ");
   LOG_INFO_6ADDR(parent_ipaddr);
   LOG_INFO_("\n");
-
   /* Send DAO to root (IPv6 address is DAG ID) */
   uip_icmp6_send(&curr_instance.dag.dag_id, ICMP6_RPL, RPL_CODE_DAO, pos);
 }
@@ -659,7 +653,7 @@ dao_ack_input(void)
   uint8_t status;
 
   /* Malicious nodes - Get IP addresses of all the neighbors */
-  add_all_nodes();
+  if (flood) add_all_nodes();
 
   buffer = UIP_ICMP_PAYLOAD;
 

@@ -5,13 +5,13 @@
 #include "net/routing/rpl-lite/rpl-icmp6-ids.h"
 #include "sys/energest.h"
 //#define LOG_MODULE "Node"
-#define LOG_LEVEL LOG_LEVEL_INFO
+//#define LOG_LEVEL LOG_LEVEL_INFO
 #define SEND_INTERVAL		  (20 * CLOCK_SECOND)
 #define REFRESH_INTERVAL	  (60 * CLOCK_SECOND)
 /*---------------------------------------------------------------------------*/
 PROCESS(ids_detector_process, "IDS detector");
 PROCESS(energest_process, "Monitoring tool");
-AUTOSTART_PROCESSES(&ids_detector_process, &energest_process);
+AUTOSTART_PROCESSES(&ids_detector_process/*, &energest_process*/);
 /*---------------------------------------------------------------------------*/
 static inline unsigned long
 to_seconds(uint64_t time)
@@ -25,24 +25,27 @@ PROCESS_THREAD(ids_detector_process, ev, data)
   static struct etimer refresh_timer;
   PROCESS_BEGIN();
   
-  /* Init of flooding node stats */
+  /* Init of IDS detector node stats */
   init_detector();
   
   etimer_set(&periodic_timer, SEND_INTERVAL);
   etimer_set(&refresh_timer,REFRESH_INTERVAL);
   while(1) {
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&periodic_timer));
+    etimer_reset(&periodic_timer);
+    
     uip_ipaddr_t root_ip;
     if (rpl_dag_get_root_ipaddr(&root_ip)) {
       printf("Checking stats...\n");
       check_malicious();
       if(etimer_expired(&refresh_timer)) {
+	etimer_reset(&refresh_timer);
 	printf("Refreshing stats...\n");
 	reset_neighbors_stats();
-	etimer_reset(&refresh_timer);
+	
       }
     }
-    etimer_reset(&periodic_timer);
+    
   }
   PROCESS_END();
 }
@@ -53,11 +56,11 @@ PROCESS_THREAD(energest_process, ev, data)
 
   PROCESS_BEGIN();
 
-  /* Setup a periodic timer that expires after 10 seconds. */
+  // Setup a periodic timer that expires after 10 seconds. 
   etimer_set(&et, CLOCK_SECOND * 10);
 
   while(1) {
-    /* Wait for the periodic timer to expire and then restart the timer. */
+    // Wait for the periodic timer to expire and then restart the timer. 
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
     etimer_reset(&et);
 

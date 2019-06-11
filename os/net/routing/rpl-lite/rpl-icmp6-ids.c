@@ -1,7 +1,8 @@
 #include "net/routing/rpl-lite/rpl-icmp6-ids.h"
 #define LOG_MODULE "RPL"
 #define LOG_LEVEL LOG_LEVEL_INFO
-#define DIO_THRESHOLD 10
+#define DIO_THRESHOLD 15
+#define HEARTBEAT_MAX 4
 /* Initialize RPL ICMPv6 Flooding message handler */
 UIP_ICMP6_HANDLER(ids_handler, ICMP6_RPL, RPL_CODE_IDS, ids_input);
 UIP_ICMP6_HANDLER(detector_handler, ICMP6_RPL, RPL_CODE_DETECTOR, detector_input);
@@ -32,7 +33,8 @@ void init_detector(){
 void init_ids_nodes_array(){
     uint8_t i;
     for(i=0; i < (uint8_t)( sizeof(ids_nodes_ip) / sizeof(ids_nodes_ip[0])); ++i){
-        ids_nodes_ip[i].used = false;
+        ids_nodes_ip[i].used = ids_nodes_ip[i].hb = false;
+	ids_nodes_ip[i].hb_sent = 0;
     }
 }
 
@@ -43,9 +45,43 @@ void reset_ids_nodes_stats(){
   }
 }
 
+void add_hb(uip_ipaddr_t * ip){
+  uint8_t i;
+  for(i=0; i < (uint8_t)( sizeof(ids_nodes_ip) / sizeof(ids_nodes_ip[0])); ++i){
+    if (ids_nodes_ip[i].used && compare_address(ip,&ids_nodes_ip[i].ipaddr)) {
+      ids_nodes_ip[i].hb_sent = 0;
+      ids_nodes_ip[i].hb = false;
+      return;
+    }
+  }
+}
+void manage_heartbeat(){
+  uint8_t i;
+  for(i=0; i < (uint8_t)( sizeof(ids_nodes_ip) / sizeof(ids_nodes_ip[0])) && ids_nodes_ip[i].used; ++i){
+    char buff[21];
+    uiplib_ipaddr_snprint(buff, sizeof(buff), &ids_nodes_ip[i].ipaddr);
+    printf ("echo count: %u of node %s\n", ids_nodes_ip[i].hb_sent,buff);
+    if (ids_nodes_ip[i].hb_sent > HEARTBEAT_MAX) {
+      char buf[21];
+      uiplib_ipaddr_snprint(buf, sizeof(buf), &ids_nodes_ip[i].ipaddr);
+      printf("Node with ip %s is not reachable. Possible Grayhole or Blackhole attack.\n",buf);
+      ids_nodes_ip[i].hb_sent = 0;
+      ids_nodes_ip[i].hb = false;
+    }
+    uip_icmp6_send(&ids_nodes_ip[i].ipaddr, ICMP6_ECHO_REQUEST, 255, 0);
+    ++ids_nodes_ip[i].hb_sent;
+    if (!ids_nodes_ip[i].hb) ids_nodes_ip[i].hb = true;
+    printf("sending echo message\n");
+  }
+}
 void check_malicious(){
   uint8_t i;
   for(i=0; i < (uint8_t)( sizeof(neighbors_ip) / sizeof(neighbors_ip[0])); ++i){
+    if(neighbors_ip[i].used){
+    char buf[21];
+    uiplib_ipaddr_snprint(buf, sizeof(buf), &neighbors_ip[i].ipaddr);
+    printf("attacker %s with count %u\n",buf,neighbors_ip[i].dio_counter);
+    }
     if (neighbors_ip[i].used && neighbors_ip[i].dio_counter > DIO_THRESHOLD) {
       /*ids_message message;
       strcpy(message.message,"warn_DIO");
@@ -61,6 +97,16 @@ void check_malicious(){
   }
 }
 
+void check_malicious_ids(){
+  uip_ipaddr_t root_ip;
+  rpl_dag_get_root_ipaddr(&root_ip);
+  uint8_t i;
+  for(i=0; i < (uint8_t)( sizeof(ids_nodes_ip) / sizeof(ids_nodes_ip[0])); ++i){
+    if (ids_nodes_ip[i].used && ids_nodes_ip[i].dio_counter > DIO_THRESHOLD) {
+      create_alarm(&ids_nodes_ip[i].ipaddr, &root_ip);
+    }
+  }
+}
 /* Initiliaze the information of the neighbors array */
 void init_neighbors(){
   uint8_t i;

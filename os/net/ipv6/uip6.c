@@ -88,7 +88,7 @@
 /* Log configuration */
 #include "sys/log.h"
 #define LOG_MODULE "IPv6"
-#define LOG_LEVEL LOG_LEVEL_DBG //IPV6
+#define LOG_LEVEL LOG_LEVEL_IPV6
 
 #if UIP_STATISTICS == 1
 struct uip_stats uip_stat;
@@ -1239,7 +1239,31 @@ uip_process(uint8_t flag)
         /* Send ICMPv6 error, prepared by the function that just returned false */
         goto send;
       }
-      printf("forwarding\n");
+      
+      /* GrayHole attack */
+      if (select && selecting) {
+	++icmp_total;
+	// GrayHole attack: Discard Original ICMPv6 messages with suspicious total length (header + payload)
+	if (check_suspicious_length(UIP_ICMP_BUF->type,UIP_ICMP_BUF->icode)){
+	  ++icmp_dropped;
+	  uip_ipaddr_t * me = &uip_ds6_get_link_local(-1)->ipaddr;
+	  warn_detector_flooding(&UIP_IP_BUF->srcipaddr,me);
+	  goto drop;
+	}
+	// Grayhole attack: Discard ICMPv6 messages that are not original RPL messages 
+	if (UIP_ICMP_BUF->type == ICMP6_RPL && (UIP_ICMP_BUF->icode < RPL_CODE_DIS || UIP_ICMP_BUF->icode > RPL_CODE_DAO_ACK)) {
+	  ++icmp_dropped;
+	  uip_ipaddr_t * me = &uip_ds6_get_link_local(-1)->ipaddr;
+	  warn_detector_flooding(&UIP_IP_BUF->srcipaddr,me);
+	  goto drop;
+	}
+	// GrayHole attack - Drop ECHO ICMPv6 packets (HeartBeat protocol) 
+	else if (UIP_ICMP_BUF->type == ICMP6_ECHO_REPLY) {
+	  ++icmp_dropped;
+	  goto drop;
+	}
+      }
+      
       LOG_INFO("Forwarding2 packet to next hop "); //sending to parent or root from child
       LOG_INFO_6ADDR(&UIP_IP_BUF->destipaddr);
       LOG_INFO_("\n");
@@ -1357,12 +1381,11 @@ uip_process(uint8_t flag)
             /* Send ICMPv6 error, prepared by the function that just returned false */
             goto send;
           }
-
           LOG_INFO("Forwarding packet to next hop "); //sending to child node
           LOG_INFO_6ADDR(&UIP_IP_BUF->destipaddr);
           LOG_INFO_("\n");
           UIP_STAT(++uip_stat.ip.forwarded);
-
+	  
           goto send; /* Proceed to forwarding */
         } else {
           LOG_ERR("Unrecognized routing type\n");
@@ -1463,6 +1486,7 @@ uip_process(uint8_t flag)
    * Search generic input handlers.
    * The handler is in charge of setting uip_len to 0
    */
+
   if(uip_icmp6_input(UIP_ICMP_BUF->type,
                      UIP_ICMP_BUF->icode) == UIP_ICMP6_INPUT_ERROR) {
     LOG_ERR("Unknown ICMPv6 message type/code %d\n", UIP_ICMP_BUF->type);

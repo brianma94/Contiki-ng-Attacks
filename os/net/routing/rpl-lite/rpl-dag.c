@@ -263,8 +263,6 @@ rpl_dag_ready_to_advertise(void)
 void
 rpl_dag_update_state(void)
 {
-  /* If the node is a selector, we decrease in one its rank to have preference on forwarding the packets */
-  printf("meh1 %u\n",DAG_RANK(curr_instance.dag.rank));
   rpl_rank_t old_rank;
   
   if(!curr_instance.used) {
@@ -290,11 +288,7 @@ rpl_dag_update_state(void)
     /* Select and set preferred parent */
     rpl_neighbor_set_preferred_parent(rpl_neighbor_select_best());
     /* Update rank  */
-    /*if (select) {
-        curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent) - 1;
-    }
-    else */curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent);
-    printf("meh2 %u\n",curr_instance.dag.rank);
+    curr_instance.dag.rank = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent);
     /* Update better_parent_since flag for each neighbor */
     nbr = nbr_table_head(rpl_neighbors);
     while(nbr != NULL) {

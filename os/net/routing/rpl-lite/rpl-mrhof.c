@@ -153,7 +153,6 @@ nbr_path_cost(rpl_nbr_t *nbr)
   base = nbr->rank;
 #endif /* RPL_WITH_MC */
   /* path cost upper bound: 0xffff */
-  printf("base: %lu linkmetrictorank: %u\n", (uint32_t)base , link_metric_to_rank(nbr_link_metric(nbr)));
   return MIN((uint32_t)base + link_metric_to_rank(nbr_link_metric(nbr)), 0xffff);
 }
 /*---------------------------------------------------------------------------*/

@@ -127,7 +127,6 @@ tcpip_output(const uip_lladdr_t *a)
     return 0;
   }
 }
-
 PROCESS(tcpip_process, "TCP/IP stack");
 
 /*---------------------------------------------------------------------------*/
@@ -182,7 +181,7 @@ packet_input(void)
     if (select && selecting) {
         uint8_t packet_protocol;
         uint8_t *last_header;
-        /* Get the protocol used from the last header */
+        // Get the protocol used from the last header 
         last_header = uipbuf_get_last_header(uip_buf, uip_len, &packet_protocol);
         if (last_header != NULL && packet_protocol != UIP_PROTO_ICMP6) { 
             ++packets_dropped; 
@@ -736,12 +735,10 @@ send_packet:
   } else {
     linkaddr = NULL;
   }
-
   LOG_INFO("output: sending to ");
   LOG_INFO_LLADDR((linkaddr_t *)linkaddr);
   LOG_INFO_("\n");
   tcpip_output(linkaddr);
-
   if(nbr) {
     send_queued(nbr);
   }

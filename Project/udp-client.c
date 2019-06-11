@@ -19,7 +19,7 @@ static struct simple_udp_connection udp_conn;
 /*---------------------------------------------------------------------------*/
 PROCESS(udp_client_process, "UDP client");
 PROCESS(energest_process, "Monitoring tool");
-AUTOSTART_PROCESSES(&udp_client_process, &energest_process);
+AUTOSTART_PROCESSES(&udp_client_process/*, &energest_process*/);
 /*---------------------------------------------------------------------------*/
 static inline unsigned long
 to_seconds(uint64_t time)
@@ -86,11 +86,11 @@ PROCESS_THREAD(energest_process, ev, data)
 
   PROCESS_BEGIN();
 
-  /* Setup a periodic timer that expires after 10 seconds. */
+  // Setup a periodic timer that expires after 10 seconds. 
   etimer_set(&et, CLOCK_SECOND * 10);
 
   while(1) {
-    /* Wait for the periodic timer to expire and then restart the timer. */
+    // Wait for the periodic timer to expire and then restart the timer. 
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
     etimer_reset(&et);
 

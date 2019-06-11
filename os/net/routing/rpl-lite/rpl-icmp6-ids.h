@@ -15,6 +15,13 @@ typedef struct addresses {
   int dio_counter;
 } addresses;
 
+typedef struct addresses_ids{
+  uip_ipaddr_t ipaddr;
+  bool used;
+  int dio_counter;
+  uint8_t hb_sent;
+  bool hb;
+}addresses_ids;
 /*typedef struct ids_detector_address {
   uip_ipaddr_t ipaddr;
   bool used;
@@ -26,7 +33,7 @@ typedef struct ids_message{
 } ids_message;*/
 
 addresses neighbors_ip[16];
-addresses ids_nodes_ip[16];
+addresses_ids ids_nodes_ip[16];
 //ids_detector_address ids_detectors_ip[10];
 
 uint8_t dio_sent, dao_sent, dis_sent;
@@ -47,7 +54,10 @@ void create_alarm(uip_ipaddr_t *malicious, uip_ipaddr_t *detector);
 void add_node_and_update(uip_ipaddr_t *from, char type[3]);
 void add_node_and_update_IDS(uip_ipaddr_t *from, char type[3]);
 void check_malicious();
+void check_malicious_ids();
 void add_attackers(uip_ipaddr_t *malicious);
 void rpl_icmp6_ids_output(uip_ipaddr_t *dest,const void *data, uint16_t datalen);
 bool compare_address(uip_ipaddr_t *ip1, uip_ipaddr_t *ip2);
+void add_hb(uip_ipaddr_t *ip);
+void manage_heartbeat();
 #endif

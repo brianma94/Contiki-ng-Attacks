@@ -6,8 +6,8 @@
 #include "sys/energest.h"
 //#define LOG_MODULE "App"
 //#define LOG_LEVEL LOG_LEVEL_INFO
-#define SEND_INTERVAL		  (65 * CLOCK_SECOND)
-#define ATTACK_START          SEND_INTERVAL
+#define SEND_INTERVAL		  (480 * CLOCK_SECOND) /*attack in 16min*/
+//#define ATTACK_START          SEND_INTERVAL
 
 /*---------------------------------------------------------------------------*/
 PROCESS(udp_client_process, "UDP client");
@@ -29,7 +29,6 @@ PROCESS_THREAD(udp_client_process, ev, data)
 
   /* Init of flooding node stats */
   init_select();
-  
   etimer_set(&periodic_timer, SEND_INTERVAL);
   while(1) {
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&periodic_timer));
@@ -60,9 +59,9 @@ PROCESS_THREAD(selecting_process, ev, data)
   while(1) {
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
     if (selecting) {
-        /* Launch attack */
-        printf("UDP packets dropped: %d\n", packets_dropped);
-        //printf ("ICMP packets dropped: %d, forwarded: %d\n",icmp_dropped, icmp_sent);
+        /* Launch attack - start after 16min of simulation*/
+        printf("DATA packets dropped: %d\n", packets_dropped);
+        printf ("ICMP packets dropped: %d, total: %d\n",icmp_dropped, icmp_total);
        // etimer_stop(&timer);
        etimer_reset_with_new_interval(&timer, 5*CLOCK_SECOND);
     }
