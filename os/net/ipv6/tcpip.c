@@ -730,6 +730,7 @@ tcpip_ipv6_output(void)
   }
 #endif /* UIP_ND6_SEND_NS */
 send_packet:
+
   if(nbr) {
     linkaddr = uip_ds6_nbr_get_ll(nbr);
   } else {

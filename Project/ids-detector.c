@@ -4,27 +4,52 @@
 #include "net/routing/rpl-lite/rpl-timers.h"
 #include "net/routing/rpl-lite/rpl-icmp6-ids.h"
 #include "sys/energest.h"
-//#define LOG_MODULE "Node"
-//#define LOG_LEVEL LOG_LEVEL_INFO
+#include "net/ipv6/simple-udp.h"
+#define LOG_MODULE "App"
+#define LOG_LEVEL LOG_LEVEL_INFO
+#define WITH_SERVER_REPLY  1
+#define UDP_CLIENT_PORT	8765
+#define UDP_SERVER_PORT	5678
 #define SEND_INTERVAL		  (20 * CLOCK_SECOND)
 #define REFRESH_INTERVAL	  (60 * CLOCK_SECOND)
 /*---------------------------------------------------------------------------*/
+static struct simple_udp_connection udp_conn;
 PROCESS(ids_detector_process, "IDS detector");
 PROCESS(energest_process, "Monitoring tool");
-AUTOSTART_PROCESSES(&ids_detector_process/*, &energest_process*/);
+AUTOSTART_PROCESSES(&ids_detector_process, &energest_process);
 /*---------------------------------------------------------------------------*/
 static inline unsigned long
 to_seconds(uint64_t time)
 {
   return (unsigned long)(time / ENERGEST_SECOND);
 }
+static void
+udp_rx_callback(struct simple_udp_connection *c,
+         const uip_ipaddr_t *sender_addr,
+         uint16_t sender_port,
+         const uip_ipaddr_t *receiver_addr,
+         uint16_t receiver_port,
+         const uint8_t *data,
+         uint16_t datalen)
+{
+  
+  LOG_INFO("Received request '%.*s' from ", datalen, (char *) data);
+  LOG_INFO_6ADDR(sender_addr);
+  simple_udp_sendto(&udp_conn, data, datalen, sender_addr);
+#if LLSEC802154_CONF_ENABLED
+  LOG_INFO_(" LLSEC LV:%d", uipbuf_get_attr(UIPBUF_ATTR_LLSEC_LEVEL));
+#endif
+  LOG_INFO_("\n");
 
+}
 PROCESS_THREAD(ids_detector_process, ev, data)
 {
   static struct etimer periodic_timer;
   static struct etimer refresh_timer;
   PROCESS_BEGIN();
-  
+  /* Initialize UDP connection */
+  simple_udp_register(&udp_conn, UDP_CLIENT_PORT, NULL,
+                      UDP_SERVER_PORT, udp_rx_callback);
   /* Init of IDS detector node stats */
   init_detector();
   
@@ -37,15 +62,15 @@ PROCESS_THREAD(ids_detector_process, ev, data)
     uip_ipaddr_t root_ip;
     if (rpl_dag_get_root_ipaddr(&root_ip)) {
       printf("Checking stats...\n");
+      /*Check DIO counters */
       check_malicious();
       if(etimer_expired(&refresh_timer)) {
 	etimer_reset(&refresh_timer);
+	/* Reset all DIO counters */
 	printf("Refreshing stats...\n");
 	reset_neighbors_stats();
-	
       }
     }
-    
   }
   PROCESS_END();
 }
@@ -58,12 +83,13 @@ PROCESS_THREAD(energest_process, ev, data)
 
   // Setup a periodic timer that expires after 10 seconds. 
   etimer_set(&et, CLOCK_SECOND * 10);
+  //etimer_set(&et, CLOCK_SECOND * 60*15);
 
   while(1) {
     // Wait for the periodic timer to expire and then restart the timer. 
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
     etimer_reset(&et);
-
+    //etimer_reset_with_new_interval(&et, 10*CLOCK_SECOND);
     energest_flush();
 
     printf("\nEnergest:\n");

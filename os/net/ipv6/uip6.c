@@ -1239,10 +1239,8 @@ uip_process(uint8_t flag)
         /* Send ICMPv6 error, prepared by the function that just returned false */
         goto send;
       }
-      
       /* GrayHole attack */
-     /* if (select && selecting) {
-	++icmp_total;
+      if (select && selecting) {
 	// GrayHole attack: Discard Original ICMPv6 messages with suspicious total length (header + payload)
 	if (check_suspicious_length(UIP_ICMP_BUF->type,UIP_ICMP_BUF->icode)){
 	  ++icmp_dropped;
@@ -1257,12 +1255,7 @@ uip_process(uint8_t flag)
 	  warn_detector_flooding(&UIP_IP_BUF->srcipaddr,me);
 	  goto drop;
 	}
-	// GrayHole attack - Drop ECHO ICMPv6 packets (HeartBeat protocol) 
-	else if (UIP_ICMP_BUF->type == ICMP6_ECHO_REPLY) {
-	  ++icmp_dropped;
-	  goto drop;
-	}
-      }*/
+      }
       
       LOG_INFO("Forwarding2 packet to next hop "); //sending to parent or root from child
       LOG_INFO_6ADDR(&UIP_IP_BUF->destipaddr);

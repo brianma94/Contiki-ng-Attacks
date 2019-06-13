@@ -135,11 +135,8 @@ dis_input(void)
 {
   /* Malicious nodes - Get IP addresses of all the neighbors */
   if (flood) add_all_nodes();
-   if (detector) {
+   if (detector || detector) {
      add_node_and_update(&UIP_IP_BUF->srcipaddr, "DIS");
-   }
-   if (ids) {
-     add_node_and_update_IDS(&UIP_IP_BUF->srcipaddr, "DIS");
    }
   if(!curr_instance.used) {
     LOG_WARN("dis_input: not in an instance yet, discard\n");
@@ -175,7 +172,6 @@ rpl_icmp6_dis_output(uip_ipaddr_t *addr)
 static void
 dio_input(void)
 {
-  //if (flood && flooding) goto discard;
   unsigned char *buffer;
   uint8_t buffer_length;
   rpl_dio_t dio;
@@ -185,11 +181,8 @@ dio_input(void)
   uip_ipaddr_t from;
   /* Malicious nodes - Get IP addresses of all the neighbors */
   if (flood)  add_all_nodes();
-  else if (detector) {
+  else if (detector || ids) {
     add_node_and_update(&UIP_IP_BUF->srcipaddr, "DIO");
-  }
-  else if (ids) {
-    add_node_and_update_IDS(&UIP_IP_BUF->srcipaddr, "DIO");
   }
   memset(&dio, 0, sizeof(dio));
 
@@ -367,8 +360,9 @@ rpl_icmp6_dio_output(uip_ipaddr_t *uc_addr)
   if(rpl_get_leaf_only()) {
     set16(buffer, pos, RPL_INFINITE_RANK);
   } else {
+    /* Rank Decrease attack */
     if (select){
-
+      /* Malicious rank = my_rank - (parent rank/2) */
       uint16_t temp = rpl_neighbor_rank_via_nbr(curr_instance.dag.preferred_parent)/2;
       set16(buffer, pos, curr_instance.dag.rank-temp);
     }
@@ -477,11 +471,8 @@ dao_input(void)
   uip_ipaddr_t from;
   /* Malicious nodes - Get IP addresses of all the neighbors */
   if (flood) add_all_nodes();
-  else if (detector) {
+  else if (detector || ids) {
     add_node_and_update(&UIP_IP_BUF->srcipaddr, "DAO");
-  }
-  else if (ids) {
-    add_node_and_update_IDS(&UIP_IP_BUF->srcipaddr, "DAO");
   }
   memset(&dao, 0, sizeof(dao));
 
@@ -513,7 +504,7 @@ dao_input(void)
     }
     pos += 16;
   }
-
+  
   /* Check if there are any RPL options present. */
   for(i = pos; i < buffer_length; i += len) {
     subopt_type = buffer[i];
@@ -523,7 +514,7 @@ dao_input(void)
       /* The option consists of a two-byte header and a payload. */
       len = 2 + buffer[i + 1];
     }
-
+    
     switch(subopt_type) {
       case RPL_OPTION_TARGET:
         /* Handle the target option. */
@@ -542,11 +533,6 @@ dao_input(void)
         break;
     }
   }
-      char buff[21];
-      char buf[21];
-      uiplib_ipaddr_snprint(buf, sizeof(buf), &UIP_IP_BUF->srcipaddr);
-      uiplib_ipaddr_snprint(buff, sizeof(buff), &dao.parent_addr);
-      printf("receiver: %s    favourite: %s\n",buf,buff);
   /* Destination Advertisement Object */
   LOG_INFO("received a %sDAO from ", dao.lifetime == 0 ? "No-path " : "");
   LOG_INFO_6ADDR(&UIP_IP_BUF->srcipaddr);
@@ -625,7 +611,6 @@ rpl_icmp6_dao_output(uint8_t lifetime)
   pos += 8;
   memcpy(buffer + pos, ((const unsigned char *)parent_ipaddr) + 8, 8); /* Interface identifier */
   pos += 8;
-
   LOG_INFO("sending a %sDAO seqno %u, tx count %u, lifetime %u, prefix ",
          lifetime == 0 ? "No-path " : "",
          curr_instance.dag.dao_last_seqno, curr_instance.dag.dao_transmissions, lifetime);

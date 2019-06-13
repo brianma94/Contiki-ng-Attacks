@@ -51,7 +51,7 @@
 /* Log configuration */
 #include "sys/log.h"
 #define LOG_MODULE "ICMPv6"
-#define LOG_LEVEL LOG_LEVEL_DBG/*IPV6*/
+#define LOG_LEVEL LOG_LEVEL_IPV6
 
 #define UIP_ICMP6_ERROR_BUF  ((struct uip_icmp6_error *)UIP_ICMP_PAYLOAD)
 
@@ -85,7 +85,6 @@ uint8_t
 uip_icmp6_input(uint8_t type, uint8_t icode)
 { 
   uip_icmp6_input_handler_t *handler = input_handler_lookup(type, icode);
-  
   if(handler == NULL) {
     return UIP_ICMP6_INPUT_ERROR;
   }
@@ -262,8 +261,6 @@ echo_reply_input(void)
   LOG_INFO_(" to ");
   LOG_INFO_6ADDR(&UIP_IP_BUF->destipaddr);
   LOG_INFO_("\n");
-  /* IDS - Set that &UIP_IP_BUF->srcipaddr successfully replied */
-  if (ids) add_hb(&UIP_IP_BUF->srcipaddr);
   uip_ipaddr_copy(&sender, &UIP_IP_BUF->srcipaddr);
   ttl = UIP_IP_BUF->ttl;
 
