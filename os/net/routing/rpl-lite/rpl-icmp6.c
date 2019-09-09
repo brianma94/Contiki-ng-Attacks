@@ -135,9 +135,10 @@ dis_input(void)
 {
   /* Malicious nodes - Get IP addresses of all the neighbors */
   if (flood) add_all_nodes();
-   if (detector || detector) {
+  /* IDS or detector - GET IP addresses of all the neighbors */
+  if (detector || ids) {
      add_node_and_update(&UIP_IP_BUF->srcipaddr, "DIS");
-   }
+  }
   if(!curr_instance.used) {
     LOG_WARN("dis_input: not in an instance yet, discard\n");
     goto discard;
@@ -181,6 +182,7 @@ dio_input(void)
   uip_ipaddr_t from;
   /* Malicious nodes - Get IP addresses of all the neighbors */
   if (flood)  add_all_nodes();
+  /* IDS or detector - GET IP addresses of all the neighbors */
   else if (detector || ids) {
     add_node_and_update(&UIP_IP_BUF->srcipaddr, "DIO");
   }
@@ -471,6 +473,7 @@ dao_input(void)
   uip_ipaddr_t from;
   /* Malicious nodes - Get IP addresses of all the neighbors */
   if (flood) add_all_nodes();
+  /* IDS or detector - Get IP addresses of all the neighbors */
   else if (detector || ids) {
     add_node_and_update(&UIP_IP_BUF->srcipaddr, "DAO");
   }
@@ -635,6 +638,10 @@ dao_ack_input(void)
 
   /* Malicious nodes - Get IP addresses of all the neighbors */
   if (flood) add_all_nodes();
+  /* Detector - Get IP addresses of all the neighbors */
+  else if (detector) {
+    add_node_and_update(&UIP_IP_BUF->srcipaddr, "DAK");
+  }
 
   buffer = UIP_ICMP_PAYLOAD;
 
